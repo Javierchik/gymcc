@@ -1,14 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gymcc</title>
+  <title>Store</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Gimnasio Country Club</a>
+        <div class="nav-collapse">
+          <ul class="nav pull-right">
+            <li><a href="#">javiersiado@gmail.com</a></li>
+            <li><a href="#" data-method="delete" rel="nofollow"><span class="label label-important">Log out</span></a></li>
+            <li><img alt="C737296fd2ebbf16426cfec9742d1067?s=30" src="http://www.gravatar.com/avatar/c737296fd2ebbf16426cfec9742d1067?s=30" style="padding-top:5px"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= yield %>
-
+  <div class="container-fluid">
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+        <a class="close" data-dismiss="alert">×</a>
+        <%= msg %>
+      </div>
+    <% end %>
+    
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">Menú Principal</li>
+            <li class=<%= controller.controller_name == "dashboard" ? "active" : "" %> >
+              <a href="/dashboard">
+                <i class= "<%= controller.controller_name == 'dashboard' ? 'icon-white icon-home' : 'icon-home' %>"></i> 
+                Dashboard
+              </a>
+            </li>
+            <li class=<%= controller.controller_name == "citas_medicas" ? "active" : "" %> >
+              <a href = <%#= citas_medicas_path %>>
+                <i class= "<%= controller.controller_name == 'citas_medicas' ? 'icon-white icon-book' : 'icon-book' %>"></i> 
+                Citas Médicas
+              </a>
+            </li>
+            <li class=<%= controller.controller_name == "historias_medicas" ? "active" : "" %> >
+              <a href = <%#= historias_medicas_path %> >
+                <i class= "<%= controller.controller_name == 'historias_medicas' ? 'icon-white icon-list-alt' : 'icon-list-alt' %>"></i> 
+                Historias Médicas
+              </a>
+            </li>
+            <li class=<%= controller.controller_name == "pacientes" ? "active" : "" %> >
+              <a href = <%#= pacientes_path %> >
+                <i class= "<%= controller.controller_name == 'pacientes' ? 'icon-white icon-user' : 'icon-user' %>"></i> 
+                Pacientes
+              </a>
+            </li>
+            <li class=<%= controller.controller_name == "doctores" ? "active" : "" %> >
+              <a href = <%#= doctores_path %> >
+                <i class= "<%= controller.controller_name == 'doctores' ? 'icon-white icon-heart' : 'icon-heart' %>"></i> 
+                Médicos
+              </a>
+            </li>
+            <li class="nav-header">Preferencias de Usuário</li>
+            <li><a href="#"><i class="icon-user"></i> Profile</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="icon-flag"></i> Ayuda</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span9"><%= yield %></div>
+    </div>
+  </div>
 </body>
 </html>

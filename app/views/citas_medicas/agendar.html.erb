@@ -1,0 +1,52 @@
+<div class="page-header">
+    <h1>Citas Médicas</h1>
+</div>
+
+<ul class="nav nav-tabs">
+  <li title="" rel="" class="icon index_collection_link active">
+    <a class="pjax" href= <%#= citas_medicas_path %>>
+      <i class="icon-th-list"></i>
+      <span>Lista</span>
+    </a>
+  </li>
+
+  <li title="" rel="" class="icon new_collection_link">
+    <a class="pjax" href= <%#= new_citas_medica_path %>>
+      <i class="icon-plus"></i>
+      <span>Nueva Cita</span>
+    </a>
+  </li>
+</ul>
+
+<table class="table table-striped">
+  <tr>
+    <th>Foto</th>
+    <th>Cédula</th>
+    <th>Numero accion</th>
+    <th>Nombre</th>
+    <th>Telefono Residencial</th>
+    <th>Celular</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pacientes.each do |paciente| %>
+  <tr>
+    <td><%= paciente.foto.present? ? paciente.foto.Photo : 'No Photo' %></td>
+    <td><%= paciente.NumDocumento %></td>
+    <td></td>
+    <td><%= paciente.NombreSocio %></td>
+    <td><%= paciente.TelResidencia %></td>
+    <td><%= paciente.Celular %></td>
+    <td><%= paciente.EmailPersonal %></td>
+    <td><%= link_to 'Editar', '', :class => 'btn' %></td>
+    <td><%= link_to 'Eliminar', '', confirm: 'Estas seguro?', method: :delete, :class => 'btn btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Cita Médica', '', :class => 'btn btn-primary' %>
+

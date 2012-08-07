@@ -21,3 +21,6 @@ production:
   dsn: gym-cc
   mode: odbc
   database: CountryClubSQL
+  host: 192.240.128.107
+  username: jsiado3
+  password: J4v13r.S14d0
