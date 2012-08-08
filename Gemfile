@@ -5,7 +5,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
 group :development do
-  #gem 'mysql2'
+  gem 'mysql2'
 end
 
 group :production do
