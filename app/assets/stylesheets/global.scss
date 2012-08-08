@@ -1,0 +1,20 @@
+$linkColor: #2e8b57;
+
+$navbarBackground: #2e8b57;
+$navbarBackgroundHighlight: #2e8b57;
+$navbarText: #eee;
+$navbarLinkColor: #eee;
+
+// I gather this file is a starting point for the project.
+@import "bootstrap";
+
+// Include responsive Bootstrap styles
+@import "bootstrap-responsive";
+
+body { 
+	padding-top: 60px;
+}
+
+.navbar .brand {
+  color: #ffd700;
+}
