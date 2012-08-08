@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
-gem "twitter-bootstrap-rails", "~> 2.1.1"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'static'
 
-group :development do
+group :staging do
   gem 'mysql2'
 end
 
