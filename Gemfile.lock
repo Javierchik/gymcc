@@ -32,6 +32,8 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bootstrap-sass (2.0.4.0)
+    bootstrap-will_paginate (0.0.7)
+      will_paginate
     builder (3.0.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -56,7 +58,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.3.6)
-    mysql2 (0.3.11)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -102,17 +103,21 @@ GEM
     uglifier (1.2.7)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   activerecord-sqlserver-adapter (~> 3.2.8)
   bootstrap-sass (~> 2.0.4.0)
+  bootstrap-will_paginate
   coffee-rails (~> 3.2.1)
   jquery-rails
-  mysql2
   rails (= 3.2.7)
+  railties
   ruby-odbc (~> 0.99994)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  will_paginate

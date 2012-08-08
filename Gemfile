@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
-gem 'bootstrap-sass', '~> 2.0.4.0'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development do
-  gem 'mysql2'
+  #gem 'mysql2'
 end
 
 group :production do
@@ -13,9 +14,11 @@ group :production do
 end
 
 group :assets do
+  gem 'bootstrap-sass', '~> 2.0.4.0'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'railties'
 end
 
 gem 'jquery-rails'
