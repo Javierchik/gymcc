@@ -1,3 +1,6 @@
+// Set the correct sprite paths
+$iconSpritePath: url('glyphicons-halflings.png');
+$iconWhiteSpritePath: url('glyphicons-halflings-white.png');
 $linkColor: #2e8b57;
 
 $navbarBackground: #2e8b57;
@@ -7,8 +10,6 @@ $navbarLinkColor: #eee;
 
 // I gather this file is a starting point for the project.
 @import "bootstrap";
-
-// Include responsive Bootstrap styles
 @import "bootstrap-responsive";
 
 body { 
