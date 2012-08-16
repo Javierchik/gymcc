@@ -5,6 +5,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'ruby-odbc', "~> 0.99994"
 gem 'activerecord-sqlserver-adapter','~> 3.2.8'
+gem "devise", "~> 2.1.2"
 
 group :staging do
   gem 'mysql2'

@@ -1,10 +1,14 @@
 Gymcc::Application.routes.draw do
 
-  resources :citas_medicas, :only => [] do
-    collection do
-      get :agendar
-    end
+  devise_for :deporterecepcionistas
+
+  namespace "recepcion" do
+	  resources :citas_medicas, :only => [:index] do
+	    collection do
+	      get :busqueda
+	    end
+	  end
   end
 
-  root :to => 'citas_medicas#agendar'
+  root :to => 'principal#bienvenida'
 end
