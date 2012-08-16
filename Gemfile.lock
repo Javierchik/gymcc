@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (3.2.7)
       actionpack (= 3.2.7)
@@ -50,7 +50,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.3.6)
-    mysql2 (0.3.11)
+    mysql2 (0.3.11-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -99,7 +99,7 @@ GEM
     will_paginate (3.0.3)
 
 PLATFORMS
-  ruby
+  x86-mingw32
 
 DEPENDENCIES
   activerecord-sqlserver-adapter (~> 3.2.8)
@@ -108,6 +108,6 @@ DEPENDENCIES
   mysql2
   rails (= 3.2.7)
   ruby-odbc (~> 0.99994)
-  sass-rails (~> 3.2.5)
+  sass-rails (~> 3.2.4)
   uglifier (>= 1.0.3)
   will_paginate

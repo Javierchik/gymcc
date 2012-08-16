@@ -1,26 +1,10 @@
 development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: CountryClubSQL_development
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
-test:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: CountryClubSQL_test
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  adapter: sqlserver
+  dsn: gym-cc
+  mode: odbc
+  database: CountryClubSQL
 production:
   adapter: sqlserver
   dsn: gym-cc
   mode: odbc
   database: CountryClubSQL
-  host: 192.240.128.107
-  username: jsiado3
-  password: J4v13r.S14d0

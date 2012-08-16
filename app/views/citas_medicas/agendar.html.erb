@@ -18,35 +18,49 @@
   </li>
 </ul>
 
-<table class="table table-striped">
-  <tr>
-    <th>Foto</th>
-    <th>Cédula</th>
-    <th>Numero accion</th>
-    <th>Nombre</th>
-    <th>Telefono Residencial</th>
-    <th>Celular</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="list">
+  <%= form_tag agendar_citas_medicas_path, :class => "form-inline", :method => :get do %>
+    <div style="margin:0;padding:0;display:inline">
+      <input name="utf8" type="hidden" value="✓">
+    </div>
+    <div class="well">
+      <span id="filters_box"></span>
+      <hr class="filters_box" style="display:none">
+      <input class="" name="query_string" placeholder="No. Acción/Cédula" type="search" value="">
+      <button class="btn btn-primary" data-disable-with="&lt;i class='icon-white icon-refresh'&gt;&lt;/i&gt; Refresh" type="submit">
+        <i class="icon-white icon-refresh"></i>
+        Buscar
+      </button>
+    </div>
+  <% end %>
 
-<% @pacientes.each do |paciente| %>
-  <tr>
-    <td><%= paciente.foto.present? ? paciente.foto.Photo : 'No Photo' %></td>
-    <td><%= paciente.NumDocumento %></td>
-    <td></td>
-    <td><%= paciente.NombreSocio %></td>
-    <td><%= paciente.TelResidencia %></td>
-    <td><%= paciente.Celular %></td>
-    <td><%= paciente.EmailPersonal %></td>
-    <td><%= link_to 'Editar', '', :class => 'btn' %></td>
-    <td><%= link_to 'Eliminar', '', confirm: 'Estas seguro?', method: :delete, :class => 'btn btn-danger' %></td>
-  </tr>
-<% end %>
-</table>
+  <table class="table table-striped">
+    <tr>
+      <!-- <th>Foto</th> -->
+      <th>Cédula</th>
+      <th>Numero accion</th>
+      <th>Nombre Completo</th>
+      <th>Tel. Residencial</th>
+      <th>Celular</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
 
-<br />
+  <% @pacientes.each do |paciente| %>
+    <tr>
+     <!--  <td><%= paciente.foto.present? ? paciente.foto.Photo : 'No Photo' %></td> -->
+      <td><%= paciente.NumDocumento %></td>
+      <td><%= paciente.NumSocio %></td>
+      <td><%= paciente.NombreSocio.to_s.force_encoding("UTF-8") %> </td>
+      <td><%= paciente.TelResidencia %></td>
+      <td><%= paciente.Celular %></td>
+      <td><%= paciente.EmailPersonal %></td>
+      <td><%= link_to 'Agendar Cita', '', :class => 'btn' %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<%= link_to 'Nueva Cita Médica', '', :class => 'btn btn-primary' %>
+  <br />
 
+  <%= will_paginate(@pacientes) %>
+</div>  
