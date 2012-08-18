@@ -35,16 +35,17 @@ Gymcc::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.action_mailer.default_url_options = { :host => 'country.com.co' }
+
   # set delivery method to :smtp, :sendmail or :test
   config.action_mailer.delivery_method = :smtp
 
   # these options are only needed if you choose smtp delivery
   config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address              => "mail.country.com.co",
+    :address              => "smtp.country.com.co",
     :port                 => 25,
     :user_name            => 'gymcc@country.com.co',
     :password             => 'qazwsx123',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true  }
+    :authentication       => 'plain'
+  }
 end
