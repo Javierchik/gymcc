@@ -1,0 +1,51 @@
+<div class="fluid-row">
+  <div class="well span4">
+  <h1>Medicos</h1>
+	<form accept-charset="UTF-8" action="/clients/sign_in" html="{:class=&gt;&quot;span3&quot;}" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="V/HdDvKJ2kJFkZncysVNYB6RQPAH2plN6SdCL6FQtuQ="></div>
+	<div class="control-group">
+		<label class="control-label" for="manager_email">Email</label>
+		<div class="controls">
+		<input id="manager_email" name="manager[email]" type="email">
+		</div>
+		</div>
+		<div class="control-group">
+		<label class="control-label" for="manager_password">Password</label>
+		<div class="controls">
+		<input id="manager_password" name="manager[password]" type="password">
+		<span class="help-inline">
+		<a href="/clients/password/new">Forgot your password?</a>
+		</span>
+		</div>
+		</div>
+		<div class="form-actions">
+		<input class="btn btn-primary" name="commit" type="submit" value="Sign in">
+		</div>
+	</form>
+
+</div>
+<div class="well span4">
+	<h1>Administradores</h1>
+	<form accept-charset="UTF-8" action="/managers/sign_in" html="{:class=&gt;&quot;span3&quot;}" method="post">
+		<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="V/HdDvKJ2kJFkZncysVNYB6RQPAH2plN6SdCL6FQtuQ="></div>
+	<div class="control-group">
+	<label class="control-label" for="manager_email">Email</label>
+	<div class="controls">
+	<input id="manager_email" name="manager[email]" type="email">
+	</div>
+	</div>
+	<div class="control-group">
+	<label class="control-label" for="manager_password">Password</label>
+	<div class="controls">
+	<input id="manager_password" name="manager[password]" type="password">
+	<span class="help-inline">
+	<a href="/managers/password/new">Forgot your password?</a>
+	</span>
+	</div>
+	</div>
+	<div class="form-actions">
+	<input class="btn btn-primary" name="commit" type="submit" value="Sign in">
+	</div>
+	</form>
+
+    </div>
+</div>

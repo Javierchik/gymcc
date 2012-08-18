@@ -1,0 +1,7 @@
+body {
+	background: url("/assets/backgrounds/country.jpg") top no-repeat;
+	background-size: cover;
+	font-family: Helvetica, sans-serif;
+	line-height: 1.2;
+	margin: 0px;
+}

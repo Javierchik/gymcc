@@ -3,15 +3,16 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.7'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'ruby-odbc', "~> 0.99994"
+gem 'activerecord-sqlserver-adapter','~> 3.2.8'
+gem "devise", "~> 2.1.2"
 
-group :development do
+group :staging do
   gem 'mysql2'
 end
 
 group :production do
-  gem "sass-rails", "~> 3.2.5"
-  gem 'ruby-odbc', "~> 0.99994"
-  gem 'activerecord-sqlserver-adapter','~> 3.2.8'
+  gem "sass-rails", "~> 3.2.4"
 end
 
 group :assets do
