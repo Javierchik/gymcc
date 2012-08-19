@@ -8,5 +8,5 @@ class DeporteUsuario < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip
   
   # Validations
-  validates_presence_of :nombre, :apellido
+  validates_presence_of :nombre, :apellido, :rol
 end
