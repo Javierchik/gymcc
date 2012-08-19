@@ -26,24 +26,22 @@
   </div>
 
   <div class="container-fluid">
-    <% flash.each do |name, msg| %>
-      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-        <a class="close" data-dismiss="alert">×</a>
-        <%= msg %>
+    <div class="row-fluid"> 
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+          <a class="close" data-dismiss="alert">×</a>
+          <%= msg %>
+        </div>
+      <% end %>  
+      
+      <div class="span8">
+        <div class="hero-unit">
+          <h1>GymCC</h1> 
+          <p>Bienvenidos al Gymnacio Country Club</p>
+        </div> 
       </div>
-    <% end %>
-    
-    
-    <div class="hero-unit span8">
-      <h1>Bienvenido a GymCC</h1>
-      <p>
-        Por favor has click <a href="/sign_in">Aqui</a> para entrar como Recepción
-      </p>
-      <p>
-        <a href="/sign_in" class="btn btn-primary btn-large">Entrar</a>
-      </p>
+      <div class="span4"><%= yield %></div>
     </div>
-    <div class="span4"><%= yield %></div>
   </div>
 
 </body>

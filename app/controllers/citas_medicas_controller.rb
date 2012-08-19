@@ -1,8 +1,8 @@
-class Recepcion::CitasMedicasController < ApplicationController
-  before_filter :authenticate_deporterecepcionistas!
+class CitasMedicasController < ApplicationController
+  before_filter :authenticate_deporte_usuario!
   
   def index
-    @citas_medicas = Deportecitasmedicas.all.order('FechaCitaMedica DESC')
+    @citas_medicas = DeporteCitasMedica.all.order('FechaCitaMedica DESC')
   end
 
   def busqueda
