@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>Citas Médicas</h1>
+</div>
+
+<%= render 'nav_bar' %>
+
+<div id="list">
+  <%= render 'search_bar' %>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Fecha Cita</th>
+      <th>Cédula</th>
+      <th>No Accion</th>
+      <th>Nombre Completo</th>
+      <th>Tel. Res.</th>
+      <th>Celular</th>
+    </tr>
+
+    <% @citas_medicas.each do |cita| %>
+      <tr>
+        <td><%= cita.fecha_cita %></td>
+        <td><%= cita.socio.NumDocumento %></td>
+        <td><%= cita.socio.NumSocio %></td>
+        <td><%= cita.socio.nombre_completo %> </td>
+        <td><%= cita.socio.TelResidencia %></td>
+        <td><%= cita.socio.Celular %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <br />
+
+  <%= will_paginate(@pacientes) %>
+</div>  

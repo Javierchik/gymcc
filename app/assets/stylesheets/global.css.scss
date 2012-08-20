@@ -8,14 +8,30 @@ $navbarBackgroundHighlight: #2e8b57;
 $navbarText: #eee;
 $navbarLinkColor: #eee;
 
-// I gather this file is a starting point for the project.
-@import "bootstrap";
-@import "bootstrap-responsive";
-
 body { 
 	padding-top: 60px;
 }
 
+// I gather this file is a starting point for the project.
+@import "bootstrap";
+@import "bootstrap-responsive";
+
 .navbar .brand {
   color: #ffd700;
+}
+
+.dl-horizontal dt {
+	float: left;
+	width: 130px;
+	clear: left;
+	text-align: right;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-bottom: 13px;
+}
+
+.dl-horizontal dd {
+	margin-left: 140px;
+	padding-bottom: 13px;
 }

@@ -1,0 +1,16 @@
+<ul class="nav nav-tabs">
+  <li title="" rel="" class="icon index_collection_link <%= controller.action_name.eql?('index') ? 'active' : '' %>">
+    <a class="pjax" href= <%= deporte_usuarios_path %>>
+      <i class="icon-th-list"></i>
+      <span>Lista</span>
+    </a>
+  </li>
+
+  <li title="" rel="" class="icon new_collection_link <%= controller.action_name.eql?('new') ? 'active' : '' %>">
+    <a class="pjax" href= <%= new_deporte_usuario_path %>>
+      <i class="icon-search"></i>
+      <span>Nuevo</span>
+    </a>
+  </li>
+
+</ul>  

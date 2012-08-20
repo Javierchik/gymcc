@@ -1,7 +1,7 @@
 class DeporteUsuario < ActiveRecord::Base
   
   # Devise
-  devise :registerable, :database_authenticatable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :rememberable, :trackable, :validatable
   
   # Attributes
   attr_accessible :nombre, :apellido, :cedula, :celular, :rol, :direccion_residencia, :telefono_residencia
@@ -9,4 +9,15 @@ class DeporteUsuario < ActiveRecord::Base
   
   # Validations
   validates_presence_of :nombre, :apellido, :rol
+
+  def nombre_completo
+    nombre.to_s + ' ' + apellido.to_s
+  end
+
+  protected
+
+  def password_required?
+    password.present? || password_confirmation.present?
+  end
+
 end

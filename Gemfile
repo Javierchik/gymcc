@@ -1,9 +1,11 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.7'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+gem 'will_paginate', "~> 3.0.3"
+gem 'bootstrap-will_paginate', "~> 0.0.7"
 gem "devise", "~> 2.1.2"
+gem "simple_form", "~> 2.0.2"
+gem "declarative_authorization", "~> 0.5.5"
 
 group :development do
   gem 'ruby-odbc', "~> 0.99994"

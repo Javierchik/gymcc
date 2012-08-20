@@ -22,9 +22,12 @@
         <a class="brand" href="#">Gimnasio Country Club</a>
         <div class="nav-collapse">
           <ul class="nav pull-right">
-            <li><a href="#">javiersiado@gmail.com</a></li>
-            <li><a href="#" data-method="delete" rel="nofollow"><span class="label label-important">Log out</span></a></li>
-            <li><img alt="C737296fd2ebbf16426cfec9742d1067?s=30" src="http://www.gravatar.com/avatar/c737296fd2ebbf16426cfec9742d1067?s=30" style="padding-top:5px"></li>
+            <li><a href="#"><%= current_deporte_usuario.email %></a></li>
+            <li>
+              <%= link_to destroy_deporte_usuario_session_path, :method => :delete do %>  
+                <span class="label label-important">Salir</span>
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>
@@ -33,26 +36,27 @@
 
   <div class="container-fluid">
     <% flash.each do |name, msg| %>
-      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <div class="fade in alert alert-<%= name == :notice ? "success" : "error" %>">
         <a class="close" data-dismiss="alert">×</a>
         <%= msg %>
       </div>
     <% end %>
+    <% flash.discard %>
     
     <div class="row-fluid">
       <div class="span3">
         <div class="well sidebar-nav">
           <ul class="nav nav-list">
             <li class="nav-header">Menú Principal</li>
-            <li class=<%= controller.controller_name == "dashboard" ? "active" : "" %> >
-              <a href="/dashboard">
-                <i class= "<%= controller.controller_name == 'dashboard' ? 'icon-white icon-home' : 'icon-home' %>"></i> 
+            <li class=<%= (controller.controller_name == "citas_medicas" && (controller.action_name == "index" || controller.action_name == "busqueda")) ? "active" : "" %> >
+              <a href= "<%= citas_medicas_path %>">
+                <i class= "<%= (controller.controller_name == 'citas_medicas' && (controller.action_name == "index" || controller.action_name == "busqueda"))? 'icon-white icon-home' : 'icon-home' %>"></i> 
                 Dashboard
               </a>
             </li>
-            <li class=<%= controller.controller_name == "citas_medicas" ? "active" : "" %> >
-              <a href = <%#= citas_medicas_path %>>
-                <i class= "<%= controller.controller_name == 'citas_medicas' ? 'icon-white icon-book' : 'icon-book' %>"></i> 
+            <li class=<%= (controller.controller_name == "citas_medicas" && (controller.action_name == "citas" || controller.action_name == "create")) ? "active" : "" %> >
+              <a href = <%= citas_citas_medicas_path %>>
+                <i class= "<%= (controller.controller_name == 'citas_medicas' && controller.action_name == "citas") ? 'icon-white icon-book' : 'icon-book' %>"></i> 
                 Citas Médicas
               </a>
             </li>
@@ -62,20 +66,10 @@
                 Historias Médicas
               </a>
             </li>
-            <li class=<%= controller.controller_name == "pacientes" ? "active" : "" %> >
-              <a href = <%#= pacientes_path %> >
-                <i class= "<%= controller.controller_name == 'pacientes' ? 'icon-white icon-user' : 'icon-user' %>"></i> 
-                Pacientes
-              </a>
+            <li class="nav-header">Configuración</li>
+            <li class=<%= (controller.controller_name == "deporte_usuarios") ? "active" : "" %>>
+              <a href="#"><i class= "<%= (controller.controller_name == 'deporte_usuarios') ? 'icon-white icon-user' : 'icon-user' %>"></i> Usuários</a>
             </li>
-            <li class=<%= controller.controller_name == "doctores" ? "active" : "" %> >
-              <a href = <%#= doctores_path %> >
-                <i class= "<%= controller.controller_name == 'doctores' ? 'icon-white icon-heart' : 'icon-heart' %>"></i> 
-                Médicos
-              </a>
-            </li>
-            <li class="nav-header">Preferencias de Usuário</li>
-            <li><a href="#"><i class="icon-user"></i> Profile</a></li>
             <li class="divider"></li>
             <li><a href="#"><i class="icon-flag"></i> Ayuda</a></li>
           </ul>

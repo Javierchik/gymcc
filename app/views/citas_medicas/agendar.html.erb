@@ -1,66 +1,86 @@
 <div class="page-header">
-    <h1>Citas Médicas</h1>
+  <h1>Citas Médicas</h1>
 </div>
 
-<ul class="nav nav-tabs">
-  <li title="" rel="" class="icon index_collection_link active">
-    <a class="pjax" href= <%#= citas_medicas_path %>>
-      <i class="icon-th-list"></i>
-      <span>Lista</span>
-    </a>
-  </li>
+<%= render 'nav_bar' %>
 
-  <li title="" rel="" class="icon new_collection_link">
-    <a class="pjax" href= <%#= new_citas_medica_path %>>
-      <i class="icon-plus"></i>
-      <span>Nueva Cita</span>
-    </a>
-  </li>
-</ul>
+<div class="fieldset">
+  <h3>Agende una Cita</h3>  
+  <div class="span11 well">
+  
+    <ul class="thumbnails" style="margin-bottom:0px">
+      <li class="span3" style="margin-bottom:0px">
+        <a href="#" class="thumbnail">
+          <%#= @paciente.foto.present? ? @paciente.foto.Photo : 'No Photo' %>
+          <img src="http://placehold.it/160x200" alt="">
+        </a>
+      </li>
+      <li class="span9" style="margin-bottom:0px">
+        <dl class="dl-horizontal" style="margin-bottom:0px">
+          <dt class="fix_dt">Cédula</dt>
+          <dd class="fix_dd"><%= @paciente.NumDocumento %></dd>
+          
+          <dt>Numero accion</dt>
+          <dd><%= @paciente.NumSocio %></dd>
+          
+          <dt>Tel. Residencial</dt>
+          <dd><%= @paciente.TelResidencia %></dd>
+          
+          <dt>Celular</dt>
+          <dd><%= @paciente.Celular %></dd>
+          
+          <dt>Email</dt>
+          <dd>
+            <% if @paciente.EmailPersonal.present? %>
+              <%= @paciente.EmailPersonal %>
+            <% else %>
+              <span class="label label-warning">El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>
+            <% end %>  
+          </dd>
+          
+          <dt>Seleccione día y hora</dt>
+          <dd>
+            <%= simple_form_for @cita_medica, :url => citas_medicas_path, :html => {:class => "form-inline", :style => "margin-bottom:0px"} do |f| %>
+              <%= hidden_field_tag :id_unico_socio, @paciente.id %>
+                
+              <%= f.text_field :dia_cita, :class => "input-small", :'data-behaviour' => "datepicker", :style => "margin-right: 10px;" %>
+              <i class="icon-calendar" style="margin: 0 0 0 -30px; pointer-events: none; position: relative;"></i>
+                 
+              <%= f.text_field :hora_cita, :class => "timepicker-2 input-small", :'data-behaviour' => "timepicker", :style => "margin-right: 10px;" %>
+              <i class="icon-time" style="margin: 0 0 0 -30px; pointer-events: none; position: relative;"></i>
+                  
+              <button class="btn btn-primary" data-disable-with="&lt;i class='icon-white icon-refresh'&gt;&lt;/i&gt; Refresh" type="submit">
+                  <i class="icon-white icon-ok"></i>
+                  Salvar
+              </button>
+            
+              <% if @cita_medica.errors.any? %>  
+                <li>
+                  <span class="label label-important"><%= @cita_medica.errors.full_messages.first %></span>
+                </li>  
+              <% end %> 
+            <% end %>
+          </dd>
+        </dl>
+      </li>
+    </ul>
+  </div>
+  <div class = "fieldset">
+    <h3>Ultimas citas médicas</h3>
 
-<div id="list">
-  <%= form_tag agendar_citas_medicas_path, :class => "form-inline", :method => :get do %>
-    <div style="margin:0;padding:0;display:inline">
-      <input name="utf8" type="hidden" value="✓">
-    </div>
-    <div class="well">
-      <span id="filters_box"></span>
-      <hr class="filters_box" style="display:none">
-      <input class="" name="query_string" placeholder="No. Acción/Cédula" type="search" value="">
-      <button class="btn btn-primary" data-disable-with="&lt;i class='icon-white icon-refresh'&gt;&lt;/i&gt; Refresh" type="submit">
-        <i class="icon-white icon-refresh"></i>
-        Buscar
-      </button>
-    </div>
-  <% end %>
-
-  <table class="table table-striped">
-    <tr>
-      <!-- <th>Foto</th> -->
-      <th>Cédula</th>
-      <th>Numero accion</th>
-      <th>Nombre Completo</th>
-      <th>Tel. Residencial</th>
-      <th>Celular</th>
-      <th>Email</th>
-      <th></th>
-    </tr>
-
-  <% @pacientes.each do |paciente| %>
-    <tr>
-     <!--  <td><%= paciente.foto.present? ? paciente.foto.Photo : 'No Photo' %></td> -->
-      <td><%= paciente.NumDocumento %></td>
-      <td><%= paciente.NumSocio %></td>
-      <td><%= paciente.NombreSocio.to_s.force_encoding("UTF-8") %> </td>
-      <td><%= paciente.TelResidencia %></td>
-      <td><%= paciente.Celular %></td>
-      <td><%= paciente.EmailPersonal %></td>
-      <td><%= link_to 'Agendar Cita', '', :class => 'btn' %></td>
-    </tr>
-  <% end %>
-  </table>
-
-  <br />
-
-  <%= will_paginate(@pacientes) %>
-</div>  
+    <table class="table table-striped">
+      <tr>
+        <th>Fecha Cita</th>
+        <th>Día de Creación</th>
+        <th>Estado</th>
+      </tr>
+      <% @citas_medicas.each do |cita| %>
+        <tr>
+          <td><%= cita.fecha_cita %></td>
+          <td><%= cita.created_at.strftime("%d de %B - %H:%M %p") %></td>
+          <td><%= cita.estatus %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -15,29 +15,23 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
         <a class="brand" href="<%= root_path %>">Gimnasio Country Club</a>
       </div>
     </div>
   </div>
 
   <div class="container-fluid">
+    <% flash.each do |name, msg| %>
+      <div class="fade in alert alert-<%= name == :notice ? "success" : "error" %>">
+        <a class="close" data-dismiss="alert">×</a>
+        <%= msg %>
+      </div>
+    <% end %>  
     <div class="row-fluid"> 
-      <% flash.each do |name, msg| %>
-        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-          <a class="close" data-dismiss="alert">×</a>
-          <%= msg %>
-        </div>
-      <% end %>  
-      
       <div class="span8">
-        <div class="hero-unit">
+        <div class="hero-unit jumbotron masthead">
           <h1>GymCC</h1> 
-          <p>Bienvenidos al Gymnacio Country Club</p>
+          <p>Bienvenidos al Gimnasio Country Club</p>
         </div> 
       </div>
       <div class="span4"><%= yield %></div>

@@ -10,3 +10,6 @@
 //= require bootstrap-tooltip
 //= require bootstrap-popover
 //= require bootstrap-typeahead
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker.es
+//= require bootstrap-timepicker

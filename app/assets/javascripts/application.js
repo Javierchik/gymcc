@@ -15,4 +15,19 @@
 //= require bootstrap
 
 $(document).ready(function(){
+  $(document).on("focus", "[data-behaviour~='datepicker']", function(e){
+    $(this).datepicker({"format": "yyyy-mm-dd", 
+    	                "weekStart": 1, "autoclose": true, "startDate": new Date() });
+  });
+
+  $(document).on("focus", "[data-behaviour~='timepicker']", function(e){
+    $(this).timepicker({showInputs:false});
+  });
+
+  window.setTimeout(function() {
+    $(".alert.fade.in").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+  }, 3500);
+
 });
