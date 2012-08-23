@@ -21,7 +21,7 @@
 
   <% @socios.each do |socio| %>
     <tr>
-     <!--  <td><%= socio.foto.present? ? socio.foto.Photo : 'No Photo' %></td> -->
+     <!--  <td><%#= socio.foto.present? ? socio.foto.Photo : 'No Photo' %></td> -->
       <td><%= socio.NumDocumento %></td>
       <td><%= socio.NumSocio %></td>
       <td><%= socio.NombreSocio.to_s.force_encoding("UTF-8") %> </td>

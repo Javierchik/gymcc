@@ -1,7 +1,7 @@
 class DeporteCitasMedica < ActiveRecord::Base
   belongs_to :socio
 
-  attr_accessible :dia_cita, :hora_cita 
+  attr_accessible :dia_cita, :hora_cita, :socio_id
 
   validates_presence_of :dia_cita, :hora_cita, :socio_id
   validates_associated :socio

@@ -1,5 +1,5 @@
 class DeporteUsuario < ActiveRecord::Base
-  
+
   # Devise
   devise :database_authenticatable, :rememberable, :trackable, :validatable
   
@@ -12,6 +12,18 @@ class DeporteUsuario < ActiveRecord::Base
 
   def nombre_completo
     nombre.to_s + ' ' + apellido.to_s
+  end
+
+  def role_name
+    puts rol
+    case rol
+    when 'A'
+      return 'Administrador'
+    when 'R'
+      return 'Recepcion'
+    when 'M'
+      return 'Medico'
+    end
   end
 
   protected

@@ -54,9 +54,9 @@
                 Dashboard
               </a>
             </li>
-            <li class=<%= (controller.controller_name == "citas_medicas" && (controller.action_name == "citas" || controller.action_name == "create")) ? "active" : "" %> >
+            <li class=<%= (controller.controller_name == "citas_medicas" && (controller.action_name == "citas" || controller.action_name == "create" || controller.action_name == "agendar")) ? "active" : "" %> >
               <a href = <%= citas_citas_medicas_path %>>
-                <i class= "<%= (controller.controller_name == 'citas_medicas' && controller.action_name == "citas") ? 'icon-white icon-book' : 'icon-book' %>"></i> 
+                <i class= "<%= (controller.controller_name == 'citas_medicas' && (controller.action_name == "citas" || controller.action_name == "create" || controller.action_name == "agendar")) ? 'icon-white icon-book' : 'icon-book' %>"></i> 
                 Citas Médicas
               </a>
             </li>
