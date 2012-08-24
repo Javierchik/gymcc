@@ -15,7 +15,6 @@ class DeporteUsuario < ActiveRecord::Base
   end
 
   def role_name
-    puts rol
     case rol
     when 'A'
       return 'Administrador'
@@ -24,6 +23,10 @@ class DeporteUsuario < ActiveRecord::Base
     when 'M'
       return 'Medico'
     end
+  end
+
+  def role_symbols
+    [:administrador, :recepcion, :medico]
   end
 
   protected

@@ -1,5 +1,6 @@
 class CitasMedicasController < ApplicationController
   before_filter :authenticate_deporte_usuario!
+  filter_access_to :all, :context => :citas_medicas
   
   def index
     @citas_medicas_hoy = DeporteCitasMedica.where(:dia_cita => Date.today).order('hora_cita ASC')

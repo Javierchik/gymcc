@@ -1,5 +1,6 @@
 class DeporteUsuariosController < ApplicationController
   before_filter :authenticate_deporte_usuario!
+  filter_access_to :all, :context => :deporte_usuarios
 
   # GET /deporte_usuarios
   # GET /deporte_usuarios.json
