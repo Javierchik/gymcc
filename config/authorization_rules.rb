@@ -9,11 +9,11 @@ authorization do
 
   role :medico do
     includes :guest
-    
+    has_permission_on :deporte_historias_clinicas, :to => [:index, :create, :elaborar]
   end
 
   role :administrador do
-    includes :guest
+    includes :guest, :recepcion, :medico
     has_permission_on :deporte_usuarios, :to => [:manage]
   end
 end

@@ -1,4 +1,4 @@
-<%= form_tag busqueda_citas_medicas_path, :class => "form-inline", :method => :get do %>
+<%= form_tag busquedas_path, :class => "form-inline", :method => :get do %>
   <div class="well">
     <%= search_field_tag :query_string, "", :placeholder => "No. Acción/Cédula" %>
     <button class="btn btn-primary" data-disable-with="&lt;i class='icon-white icon-refresh'&gt;&lt;/i&gt; Refresh" type="submit">

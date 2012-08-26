@@ -8,16 +8,30 @@
   end
 
   resources :citas_medicas, :only => [:index, :create] do
-    collection do
-      get :busqueda
+    member do
       get :agendar
+    end
+
+    collection do
       get :citas
     end
   end
 
-  resources :historias_clinicas do
+  resources :historias_clinicas, :only => [:index, :create] do
+    member do
+      get :listado_historias
+      get :elaborar
+    end
   end
 
   resources :deporte_usuarios, :except => [:show] 
+
+  resources :busquedas, :only => [:index] do
+    member do
+      get :detalle
+    end
+  end
+
+  resources :agenda, :only => [:index]
   
 end

@@ -15,7 +15,7 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="<%= root_path %>">Gimnasio Country Club</a>
+        <%= link_to 'Gimnasio Country Club', root_path, :class => "brand" %>
       </div>
     </div>
   </div>
@@ -27,6 +27,8 @@
         <%= msg %>
       </div>
     <% end %>  
+    <% flash.discard %>
+    
     <div class="row-fluid"> 
       <div class="span8">
         <div class="hero-unit jumbotron masthead">

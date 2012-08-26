@@ -1,4 +1,9 @@
 es:
+  resultado:
+    zero: "No hay resultados"
+    one: '1 Resultado'
+    other: '%{count} Resultados'
+
   will_paginate:
     next_label: siguiente →
     page_gap: ! '&hellip;'

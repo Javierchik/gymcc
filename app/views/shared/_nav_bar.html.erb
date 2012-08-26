@@ -1,0 +1,89 @@
+<% agenda = [
+  {"controller_path" => "agenda", "action_name"=>"index"},
+  ] %>
+
+<% busqueda = [
+  {"controller_path" => "busquedas", "action_name"=>"index"},
+  ] %>  
+
+<% cita = [
+  {"controller_path" => "citas_medicas", "action_name"=>"index"},
+  ] %> 
+
+<% historias = [
+  {"controller_path" => "historias_clinicas", "action_name"=>"index"},
+  ] %> 
+
+<% nueva = [
+  {"controller_path" => "citas_medicas", "action_name"=>"agendar"},
+  {"controller_path" => "citas_medicas", "action_name"=>"create"},
+  {"controller_path" => "historias_clinicas", "action_name"=>"elaborar"},
+  {"controller_path" => "historias_clinicas", "action_name"=>"create"},
+  ] %>
+
+<% detalle = [
+  {"controller_path" => "busquedas", "action_name"=>"detalle"},
+  ] %>     
+
+<ul class="nav nav-tabs">
+
+  <li title="" rel="" class="icon index_collection_link <%= set_as_current_tab(agenda, true, 'active') %> ">
+    <a class="pjax" href= <%= agenda_index_path %>>
+      <i class="icon-calendar"></i>
+      <span>Agenda</span>
+    </a>
+  </li>
+
+  <% if current_deporte_usuario.is?(:recepcion) %>
+    <li title="" rel="" class="icon new_collection_link <%= set_as_current_tab(cita, true, 'active') %> ">
+      <a class="pjax" href= <%= citas_medicas_path %>>
+        <i class="icon-book"></i>
+        <span>Citas</span>
+      </a>
+    </li>
+  <% end %>
+
+  <% if current_deporte_usuario.is?(:medico) %>
+    <li title="" rel="" class="icon new_collection_link <%= set_as_current_tab(historias, true, 'active') %> ">
+      <a class="pjax" href= <%= historias_clinicas_path %>>
+        <i class="icon-list-alt"></i>
+        <span>Historias Clínicas</span>
+      </a>
+    </li>
+  <% end %>
+
+  <li title="" rel="" class="icon new_collection_link <%= set_as_current_tab(busqueda, true, 'active') %> ">
+    <a class="pjax" href= <%= busquedas_path %>>
+      <i class="icon-search"></i>
+      <span>Búsqueda</span>
+    </a>
+  </li>
+ 
+  <% if controller.controller_name.eql?('citas_medicas') && (controller.action_name.eql?('agendar') || controller.action_name.eql?('create'))%>
+    <li title="" rel="" class="icon new_collection_link <%= set_as_current_tab(nueva, true, 'active') %>  %>">
+      <a class="pjax" href="javascript:void(0)">
+        <i class="icon-plus"></i>
+        <span>Nueva Cita</span>
+      </a>
+    </li>
+  <% end %>
+
+  <% if controller.controller_name.eql?('historias_clinicas') && (controller.action_name.eql?('elaborar') || controller.action_name.eql?('create'))%>
+    <li title="" rel="" class="icon new_collection_link <%= set_as_current_tab(nueva, true, 'active') %>  %>">
+      <a class="pjax" href="javascript:void(0)">
+        <i class="icon-plus"></i>
+        <span>Nueva Historia Clínica</span>
+      </a>
+    </li>
+  <% end %>
+
+  <% if controller.controller_name.eql?('busquedas') && controller.action_name.eql?('detalle')%>
+    <li title="" rel="" class="icon new_collection_link <%= set_as_current_tab(detalle, true, 'active') %>  %>">
+      <a class="pjax" href="javascript:void(0)">
+        <i class="icon-user"></i>
+        <span><%= @paciente.nombre_completo %></span>
+      </a>
+    </li>
+  <% end %>
+  
+</ul>

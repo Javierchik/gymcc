@@ -1,0 +1,54 @@
+<% agenda = [
+  {"controller_path" => "agenda", "action_name"=>"index"},
+  ] %>
+
+<% cita = [
+  {"controller_path" => "citas_medicas", "action_name"=>"index"},
+  {"controller_path" => "citas_medicas", "action_name"=>"agendar"},
+  {"controller_path" => "citas_medicas", "action_name"=>"create"},
+  ] %>  
+
+<% historia = [
+  {"controller_path" => "historias_clinicas", "action_name"=>"index"},
+  ] %>
+
+<% usuario = [
+  {"controller_path" => "deporte_usuarios", "action_name"=>"index"},
+  ] %>  
+
+<ul class="nav nav-list">
+  <li class="nav-header">Menú Principal</li>
+
+  <li <%= set_as_current_tab(agenda, false, 'active') %> >
+    <a href = <%= agenda_index_path %> >
+      <i class= "icon-calendar <%= set_as_current_tab(agenda, true, 'icon-white') %>"></i> 
+      Agenda
+    </a>
+  </li>
+
+  <li <%= set_as_current_tab(cita, false, 'active') %> >
+    <a href = <%= citas_medicas_path %>>
+      <i class= "icon-book <%= set_as_current_tab(cita, true, 'icon-white') %>"></i> 
+      Citas Médicas
+    </a>
+  </li>
+  
+  <li <%= set_as_current_tab(historia, false, 'active') %> >
+    <a href = <%= historias_clinicas_path %> >
+      <i class= "icon-list-alt <%= set_as_current_tab(historia, true, 'icon-white') %>"></i> 
+      Historias Clínicas
+    </a>
+  </li>
+
+  <li class="nav-header">Configuración</li>
+
+  <li <%= set_as_current_tab(usuario, false, 'active') %> >
+    <a href = <%= deporte_usuarios_path %> >
+      <i class= "icon-user <%= set_as_current_tab(usuario, true, 'icon-white') %>"></i> 
+      Usuários</a>
+  </li>
+  
+  <li class="divider"></li>
+
+  <li><a href="#"><i class="icon-flag"></i> Ayuda</a></li>
+</ul>

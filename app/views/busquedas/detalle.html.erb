@@ -1,0 +1,92 @@
+<div class="page-header">
+  <h1>Detalles del Paciente</h1>
+</div>
+
+<%= render 'shared/nav_bar' %>
+
+<div class="fieldset">
+  <h3>Información Básica</h3>  
+  <div class="span11 well">
+  
+    <ul class="thumbnails" style="margin-bottom:0px">
+      <li class="span3" style="margin-bottom:0px">
+        <a href="#" class="thumbnail">
+          <%#= @paciente.foto.present? ? @paciente.foto.Photo : 'No Photo' %>
+          <img src="http://placehold.it/160x200" alt="">
+        </a>
+      </li>
+      <li class="span9" style="margin-bottom:0px">
+        <dl class="dl-horizontal span6" style="margin-bottom:0px">
+          <dt>Doc. Identidad</dt>
+          <dd>&nbsp;<%= @paciente.NumDocumento %></dd>
+          
+          <dt>Fecha Nacimiento</dt>
+          <dd>&nbsp;<%= @paciente.FechaNacimiento %></dd>
+          
+          <dt>Dir. Residencia</dt>
+          <dd>&nbsp;<%= @paciente.DirResidencia %></dd>
+          
+          <dt>Celular</dt>
+          <dd>&nbsp;<%= @paciente.Celular %></dd>
+          
+          <dt>Email</dt>
+          <dd>
+            <% if @paciente.EmailPersonal.present? %>
+              <%= @paciente.EmailPersonal %>
+            <% else %>
+              <span class="label label-warning">El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>
+            <% end %>  
+          </dd>
+        </dl>
+        <dl class="dl-horizontal span6" style="margin-bottom:0px">
+          <dt>Edo. Civil</dt>
+          <dd>&nbsp;<%= @paciente.CodEstadoCivil %></dd>
+          
+          <dt>Sexo</dt>
+          <dd>&nbsp;<%= @paciente.Sexo %></dd>
+
+          <dt>Tel. Residencia</dt>
+          <dd>&nbsp;<%= @paciente.TelResidencia %></dd>
+        </dl>
+      </li>
+    </ul>
+  </div>
+  <div class = "fieldset">
+    <h3>Ultimas Historias Clínicas</h3>
+
+    <table class="table table-striped">
+      <tr>
+        <th>Motivo Consulta</th>
+        <th>Enfermedad Actual</th>
+        <th>Diagnóstico</th>
+        <th>Tratamiento</th>
+      </tr>
+      <% @historias_clinicas.each do |historia_clinica| %>
+        <tr>
+          <td><%= link_to historia_clinica.motivo_consulta, '#' %></td>
+          <td><%= historia_clinica.enfermedad_actual %></td>
+          <td><%= historia_clinica.diagnostico %></td>
+          <td><%= historia_clinica.tratamiento %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class = "fieldset">
+    <h3>Ultimas Citas Médicas</h3>
+
+    <table class="table table-striped">
+      <tr>
+        <th>Fecha Cita</th>
+        <th>Día de Creación</th>
+        <th>Estado</th>
+      </tr>
+      <% @citas_medicas.each do |cita| %>
+        <tr>
+          <td><%= cita.fecha_cita %></td>
+          <td><%= cita.fecha_creacion %></td>
+          <td><%= cita.estatus %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

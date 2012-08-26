@@ -1,11 +1,11 @@
 <div class="page-header">
-  <h1>Citas Médicas</h1>
+  <h1>Historias Clínicas</h1>
 </div>
 
 <%= render 'shared/nav_bar' %>
 
 <div class="fieldset">
-  <h3>Agende una Cita</h3>  
+  <h3>Elabore una historia clínica.</h3>  
   <div class="span11 well">
   
     <ul class="thumbnails" style="margin-bottom:0px">
@@ -40,23 +40,23 @@
           
           <dt>Seleccione día y hora</dt>
           <dd>
-            <%= simple_form_for @cita_medica, :url => citas_medicas_path, :html => {:class => "form-inline", :style => "margin-bottom:0px"} do |f| %>
+            <%= simple_form_for @historia_clinica, :url => historias_clinicas_path, :html => {:class => "form-inline", :style => "margin-bottom:0px"} do |f| %>
               <%= hidden_field_tag :id_unico_socio, @paciente.id %>
                 
-              <%= f.text_field :dia_cita, :class => "input-small", :'data-behaviour' => "datepicker", :style => "margin-right: 10px;" %>
+              <!-- <%#= f.text_field :dia_cita, :class => "input-small", :'data-behaviour' => "datepicker", :style => "margin-right: 10px;" %>
               <i class="icon-calendar" style="margin: 0 0 0 -30px; pointer-events: none; position: relative;"></i>
                  
-              <%= f.text_field :hora_cita, :class => "timepicker-2 input-small", :'data-behaviour' => "timepicker", :style => "margin-right: 10px;" %>
+              <%#= f.text_field :hora_cita, :class => "timepicker-2 input-small", :'data-behaviour' => "timepicker", :style => "margin-right: 10px;" %>
               <i class="icon-time" style="margin: 0 0 0 -30px; pointer-events: none; position: relative;"></i>
                   
               <button class="btn btn-primary" data-disable-with="&lt;i class='icon-white icon-refresh'&gt;&lt;/i&gt; Refresh" type="submit">
                   <i class="icon-white icon-ok"></i>
                   Salvar
-              </button>
+              </button> -->
             
-              <% if @cita_medica.errors.any? %>  
+              <% if @historia_clinica.errors.any? %>  
                 <li>
-                  <span class="label label-important"><%= @cita_medica.errors.full_messages.first %></span>
+                  <span class="label label-important"><%= @historia_clinica.errors.full_messages.first %></span>
                 </li>  
               <% end %> 
             <% end %>
@@ -64,23 +64,5 @@
         </dl>
       </li>
     </ul>
-  </div>
-  <div class = "fieldset">
-    <h3>Ultimas citas médicas</h3>
-
-    <table class="table table-striped">
-      <tr>
-        <th>Fecha Cita</th>
-        <th>Día de Creación</th>
-        <th>Estado</th>
-      </tr>
-      <% @citas_medicas.each do |cita| %>
-        <tr>
-          <td><%= cita.fecha_cita %></td>
-          <td><%= cita.created_at.strftime("%d de %B - %H:%M %p") %></td>
-          <td><%= cita.estatus %></td>
-        </tr>
-      <% end %>
-    </table>
   </div>
 </div>

@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1><%= I18n.t('resultado', :count => @socios.count) %> </h1>
+</div>
+
+<%= render 'shared/nav_bar' %>
+
+<div id="list">
+  <%= render 'shared/search_bar' %>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Cédula</th>
+      <th>Numero accion</th>
+      <th>Nombre Completo</th>
+      <th>Tel. Residencial</th>
+      <th>Celular</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+
+    <% @socios.each do |socio| %>
+      <tr>
+        <td><%= link_to socio.NumDocumento, detalle_busqueda_path(socio.id) %></td>
+        <td><%= socio.NumSocio %></td>
+        <td><%= socio.nombre_completo %> </td>
+        <td><%= socio.TelResidencia %></td>
+        <td><%= socio.Celular %></td>
+        <td><%= socio.EmailPersonal %></td>
+        <td>
+          <%= link_to 'Agendar Cita', agendar_citas_medica_path(socio.IdUnicoSocio), :class => 'btn' if current_deporte_usuario.is?(:recepcion) %>
+          <%= link_to 'Elaborar Historia', elaborar_historias_clinica_path(socio.IdUnicoSocio), :class => 'btn' if current_deporte_usuario.is?(:medico) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>  

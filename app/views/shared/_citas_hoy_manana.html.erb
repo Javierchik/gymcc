@@ -1,0 +1,55 @@
+<div class = "fieldset">
+  <h3>Citas para hoy</h3>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Hora Cita</th>
+      <th>Cédula</th>
+      <th>No Accion</th>
+      <th>Nombre Completo</th>
+      <th>Tel. Res.</th>
+      <th>Celular</th>
+      <th></th>
+    </tr>
+
+    <% @citas_medicas_hoy.each do |cita| %>
+      <tr>
+        <td><%= cita.hora %></td>
+        <td><%= cita.socio.NumDocumento %></td>
+        <td><%= cita.socio.NumSocio %></td>
+        <td><%= cita.socio.nombre_completo %> </td>
+        <td><%= cita.socio.TelResidencia %></td>
+        <td><%= cita.socio.Celular %></td>
+        <td>
+          <%= link_to 'Elaborar Historia', elaborar_historias_clinica_path(cita.socio.IdUnicoSocio), :class => 'btn' if current_deporte_usuario.is?(:medico) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class = "fieldset">
+  <h3>Citas para mañana</h3>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Hora Cita</th>
+      <th>Cédula</th>
+      <th>No Accion</th>
+      <th>Nombre Completo</th>
+      <th>Tel. Res.</th>
+      <th>Celular</th>
+    </tr>
+
+    <% @citas_medicas_manana.each do |cita| %>
+      <tr>
+        <td><%= cita.hora %></td>
+        <td><%= cita.socio.NumDocumento %></td>
+        <td><%= cita.socio.NumSocio %></td>
+        <td><%= cita.socio.nombre_completo %> </td>
+        <td><%= cita.socio.TelResidencia %></td>
+        <td><%= cita.socio.Celular %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

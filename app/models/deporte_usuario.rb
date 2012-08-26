@@ -16,17 +16,23 @@ class DeporteUsuario < ActiveRecord::Base
 
   def role_name
     case rol
-    when 'A'
-      return 'Administrador'
-    when 'R'
-      return 'Recepcion'
-    when 'M'
-      return 'Medico'
-    end
+      when 'A'
+        return ['Administrador', 'Recepcion', 'Medico']
+      when 'R'
+        return ['Recepcion']
+      when 'M'
+        return ['Medico']
+      end
   end
 
+  serialize [:rol], Array
+
   def role_symbols
-    [:administrador, :recepcion, :medico]
+    @role_symbols ||= [:guess, role_name.map{ |r| r.downcase.to_sym }].flatten
+  end
+
+  def is?(role_sym)
+    role_symbols.include?(role_sym)
   end
 
   protected

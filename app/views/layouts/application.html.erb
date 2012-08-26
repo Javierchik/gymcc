@@ -19,10 +19,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Gimnasio Country Club</a>
+        <%= link_to 'Gimnasio Country Club', root_path, :class => "brand" %>
         <div class="nav-collapse">
           <ul class="nav pull-right">
-            <li><a href="#"><%= current_deporte_usuario.email %></a></li>
+            <li>
+              <%= link_to current_deporte_usuario.email, 'javascript:void(0);' %>
+            </li>
             <li>
               <%= link_to destroy_deporte_usuario_session_path, :method => :delete do %>  
                 <span class="label label-important">Salir</span>
@@ -46,33 +48,7 @@
     <div class="row-fluid">
       <div class="span3">
         <div class="well sidebar-nav">
-          <ul class="nav nav-list">
-            <li class="nav-header">Menú Principal</li>
-            <li class=<%= (controller.controller_name == "citas_medicas" && (controller.action_name == "index" || controller.action_name == "busqueda")) ? "active" : "" %> >
-              <a href= "<%= citas_medicas_path %>">
-                <i class= "<%= (controller.controller_name == 'citas_medicas' && (controller.action_name == "index" || controller.action_name == "busqueda"))? 'icon-white icon-home' : 'icon-home' %>"></i> 
-                Dashboard
-              </a>
-            </li>
-            <li class=<%= (controller.controller_name == "citas_medicas" && (controller.action_name == "citas" || controller.action_name == "create" || controller.action_name == "agendar")) ? "active" : "" %> >
-              <a href = <%= citas_citas_medicas_path %>>
-                <i class= "<%= (controller.controller_name == 'citas_medicas' && (controller.action_name == "citas" || controller.action_name == "create" || controller.action_name == "agendar")) ? 'icon-white icon-book' : 'icon-book' %>"></i> 
-                Citas Médicas
-              </a>
-            </li>
-            <li class=<%= controller.controller_name == "historias_medicas" ? "active" : "" %> >
-              <a href = <%#= historias_medicas_path %> >
-                <i class= "<%= controller.controller_name == 'historias_medicas' ? 'icon-white icon-list-alt' : 'icon-list-alt' %>"></i> 
-                Historias Médicas
-              </a>
-            </li>
-            <li class="nav-header">Configuración</li>
-            <li class=<%= (controller.controller_name == "deporte_usuarios") ? "active" : "" %>>
-              <a href="<%= deporte_usuarios_path %>"><i class= "<%= (controller.controller_name == 'deporte_usuarios') ? 'icon-white icon-user' : 'icon-user' %>"></i> Usuários</a>
-            </li>
-            <li class="divider"></li>
-            <li><a href="#"><i class="icon-flag"></i> Ayuda</a></li>
-          </ul>
+          <%= render 'shared/side_bar' %>
         </div>
       </div>
       <div class="span9"><%= yield %></div>
