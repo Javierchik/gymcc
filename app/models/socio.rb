@@ -8,4 +8,8 @@ class Socio < ActiveRecord::Base
     self.NombreSocio.to_s.force_encoding("UTF-8")
   end
 
+  def fecha_nacimiento
+    I18n.localize self.FechaNacimiento, :format => '%B %d de %Y'
+  end
+
 end
