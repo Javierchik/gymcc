@@ -37,32 +37,24 @@
               <span class="label label-warning">El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>
             <% end %>  
           </dd>
-          
-          <dt>Seleccione día y hora</dt>
-          <dd>
-            <%= simple_form_for @historia_clinica, :url => historias_clinicas_path, :html => {:class => "form-inline", :style => "margin-bottom:0px"} do |f| %>
-              <%= hidden_field_tag :id_unico_socio, @paciente.id %>
-                
-              <!-- <%#= f.text_field :dia_cita, :class => "input-small", :'data-behaviour' => "datepicker", :style => "margin-right: 10px;" %>
-              <i class="icon-calendar" style="margin: 0 0 0 -30px; pointer-events: none; position: relative;"></i>
-                 
-              <%#= f.text_field :hora_cita, :class => "timepicker-2 input-small", :'data-behaviour' => "timepicker", :style => "margin-right: 10px;" %>
-              <i class="icon-time" style="margin: 0 0 0 -30px; pointer-events: none; position: relative;"></i>
-                  
-              <button class="btn btn-primary" data-disable-with="&lt;i class='icon-white icon-refresh'&gt;&lt;/i&gt; Refresh" type="submit">
-                  <i class="icon-white icon-ok"></i>
-                  Salvar
-              </button> -->
-            
-              <% if @historia_clinica.errors.any? %>  
-                <li>
-                  <span class="label label-important"><%= @historia_clinica.errors.full_messages.first %></span>
-                </li>  
-              <% end %> 
-            <% end %>
-          </dd>
         </dl>
       </li>
     </ul>
   </div>
+</div>
+
+<div class="span11">
+  <%= simple_form_for @historia_clinica, :url => historias_clinicas_path, :html => {:class => "form-inline", :style => "margin-bottom:0px"} do |f| %>
+    <%= hidden_field_tag :id_unico_socio, @paciente.id %>
+         
+    <legend style="font-size:16px">Motivo de Consulta</legend>
+    <%= f.input :motivo_consulta, :label => false, :input_html => {:class => "input-xxlarge", :rows => "2"} %>
+    <legend style="font-size:16px">Enfermedad Actual</legend>
+    <%= f.input :enfermedad_actual, :label => false, :input_html => {:class => "input-xxlarge", :rows => "2"} %>
+
+    <button class="btn btn-primary" data-disable-with="&lt;i class='icon-white icon-refresh'&gt;&lt;/i&gt; Refresh" type="submit">
+      <i class="icon-white icon-ok"></i>
+      Salvar
+    </button>
+  <% end %>
 </div>
