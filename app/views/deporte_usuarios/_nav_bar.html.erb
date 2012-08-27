@@ -13,4 +13,12 @@
     </a>
   </li>
 
+  <% if controller.action_name.eql?('edit') %>
+    <li title="" rel="" class="icon new_collection_link <%= controller.action_name.eql?('edit') ? 'active' : '' %>">
+      <a class="pjax" href= <%= edit_deporte_usuario_path(@deporte_usuario) %>>
+        <i class="icon-search"></i>
+        <span><%= @deporte_usuario.nombre_completo %></span>
+      </a>
+    </li>
+  <% end %>
 </ul>  
