@@ -1,41 +1,41 @@
 <div class="page-header">
-  <h1><%= I18n.t('resultado', :count => @socios.count) if @socio.present? %> </h1>
+  <h1><%= I18n.t('resultado', :count => @socios.count) if @socios.present? %> </h1>
 </div>
 
 <%= render 'shared/nav_bar' %>
 
 <div id="list">
   <%= render 'shared/search_bar' %>
-  <% if @socio.present? %>
-  <table class="table table-striped">
-    <tr>
-      <th>Cédula</th>
-      <th>Numero accion</th>
-      <th>Nombre Completo</th>
-      <th>Tel. Residencial</th>
-      <th>Celular</th>
-      <th>Email</th>
-      <th></th>
-    </tr>
-    
-    <% @socios.each do |socio| %>
+  <% if @socios.present? %>
+    <table class="table table-striped">
       <tr>
-        <td><%= link_to socio.NumDocumento, detalle_busqueda_path(socio.id) %></td>
-        <td><%= socio.NumSocio %></td>
-        <td><%= socio.nombre_completo %> </td>
-        <td><%= socio.TelResidencia %></td>
-        <td><%= socio.Celular %></td>
-        <td><%= socio.EmailPersonal %></td>
-        <td>
-          <%= link_to 'Agendar Cita', agendar_citas_medica_path(socio.IdUnicoSocio), :class => 'btn' if current_deporte_usuario.is?(:recepcion) %>
-          <%= link_to 'Elaborar Historia', elaborar_historias_clinica_path(socio.IdUnicoSocio), :class => 'btn' if current_deporte_usuario.is?(:medico) %>
-        </td>
+        <th>Cédula</th>
+        <th>Numero accion</th>
+        <th>Nombre Completo</th>
+        <th>Tel. Residencial</th>
+        <th>Celular</th>
+        <th>Email</th>
+        <th></th>
       </tr>
-    <% end %>
+      
+      <% @socios.each do |socio| %>
+        <tr>
+          <td><%= link_to socio.NumDocumento, detalle_busqueda_path(socio.id) %></td>
+          <td><%= socio.NumSocio %></td>
+          <td><%= socio.nombre_completo %> </td>
+          <td><%= socio.TelResidencia %></td>
+          <td><%= socio.Celular %></td>
+          <td><%= socio.EmailPersonal %></td>
+          <td>
+            <%= link_to 'Agendar Cita', agendar_citas_medica_path(socio.IdUnicoSocio), :class => 'btn' if current_deporte_usuario.is?(:recepcion) %>
+            <%= link_to 'Elaborar Historia', elaborar_historias_clinica_path(socio.IdUnicoSocio), :class => 'btn' if current_deporte_usuario.is?(:medico) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
     <br />
     <%= will_paginate(@socios) %>
-    <% else %>
-      <span class="label label-important">Escriba un criterio de busqueda</span>
-    <% end %>  
-  </table>
+  <% else %>
+    <span class="label label-important">Escriba un criterio de busqueda</span>
+  <% end %>  
 </div>  
