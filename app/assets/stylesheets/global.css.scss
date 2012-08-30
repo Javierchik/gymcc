@@ -35,3 +35,20 @@ body {
 	margin-left: 140px;
 	padding-bottom: 13px;
 }
+
+form.his_clinca legend + .control-group {
+  margin-top: 5px;
+}
+
+form.his_clinca legend {
+  margin-bottom: 0px;
+}
+
+form.his_clinca dt {
+  font-weight:normal;
+}
+
+form.his_clinca .dl-horizontal dd {
+	margin-left: 0px;
+	padding-bottom: 0px;
+}

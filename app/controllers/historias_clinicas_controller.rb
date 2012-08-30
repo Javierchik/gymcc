@@ -3,8 +3,7 @@ class HistoriasClinicasController < ApplicationController
   filter_access_to :all, :context => :deporte_historias_clinicas
 
   def index
-    @citas_medicas_hoy = DeporteCitasMedica.where(:dia_cita => Date.today).order('hora_cita ASC')
-    @citas_medicas_manana = DeporteCitasMedica.where(:dia_cita => Date.tomorrow).order('hora_cita ASC')
+    @historias_clinicas = DeporteHistoriasClinica.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
 
   def listado_historias
@@ -12,12 +11,20 @@ class HistoriasClinicasController < ApplicationController
 
   def elaborar
     @paciente = Socio.find(params[:id])
-    @historias_clinicas = @paciente.deporte_historias_clinicas.order('created_at DESC')
-    @historia_clinica = DeporteHistoriasClinica.new
-    @historia_clinica.socio_id = @paciente.id
+    @historia_clinica = @paciente.deporte_historias_clinicas.build
   end
 
   def create
+    @paciente = Socio.find(params[:id_unico_socio])
+    @historia_clinica = @paciente.deporte_historias_clinicas.build params[:deporte_historias_clinica]
+    
+    if @historia_clinica.save
+      flash[:notice] = "Se ha agendado creado la historia con exito."
+      redirect_to historias_clinicas_path
+    else
+      flash[:error] = "No se puede guardar la historia. Verifique los campos requeridos *."
+      render :elaborar
+    end
   end
 
 end

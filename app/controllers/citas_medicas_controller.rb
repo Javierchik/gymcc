@@ -3,7 +3,7 @@ class CitasMedicasController < ApplicationController
   filter_access_to :all, :context => :citas_medicas
   
   def index
-    @citas_medicas = DeporteCitasMedica.paginate(:page => params[:page], :per_page => 3).order('dia_cita DESC, hora_cita DESC')
+    @citas_medicas = DeporteCitasMedica.paginate(:page => params[:page], :per_page => 10).order('dia_cita DESC, hora_cita DESC')
   end
 
   def agendar

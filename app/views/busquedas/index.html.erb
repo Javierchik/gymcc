@@ -1,12 +1,12 @@
 <div class="page-header">
-  <h1><%= I18n.t('resultado', :count => @socios.count) %> </h1>
+  <h1><%= I18n.t('resultado', :count => @socios.count) if @socio.present? %> </h1>
 </div>
 
 <%= render 'shared/nav_bar' %>
 
 <div id="list">
   <%= render 'shared/search_bar' %>
-
+  <% if @socio.present? %>
   <table class="table table-striped">
     <tr>
       <th>Cédula</th>
@@ -17,7 +17,7 @@
       <th>Email</th>
       <th></th>
     </tr>
-
+    
     <% @socios.each do |socio| %>
       <tr>
         <td><%= link_to socio.NumDocumento, detalle_busqueda_path(socio.id) %></td>
@@ -32,6 +32,10 @@
         </td>
       </tr>
     <% end %>
+    <br />
+    <%= will_paginate(@socios) %>
+    <% else %>
+      <span class="label label-important">Escriba un criterio de busqueda</span>
+    <% end %>  
   </table>
-
 </div>  

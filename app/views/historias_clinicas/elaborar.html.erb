@@ -10,7 +10,7 @@
   
     <ul class="thumbnails" style="margin-bottom:0px">
       <li class="span3" style="margin-bottom:0px">
-        <a href="#" class="thumbnail">
+        <a href="javascript:void(0)" class="thumbnail">
           <%#= @paciente.foto.present? ? @paciente.foto.Photo : 'No Photo' %>
           <img src="http://placehold.it/160x200" alt="">
         </a>
@@ -44,14 +44,76 @@
 </div>
 
 <div class="span11">
-  <%= simple_form_for @historia_clinica, :url => historias_clinicas_path, :html => {:class => "form-inline", :style => "margin-bottom:0px"} do |f| %>
+  <%= simple_form_for @historia_clinica, :url => historias_clinicas_path, :html => {:class => "form-horizontal his_clinca", :style => "margin-bottom:0px"} do |f| %>
     <%= hidden_field_tag :id_unico_socio, @paciente.id %>
          
-    <legend style="font-size:16px">Motivo de Consulta</legend>
+    <legend style="font-size:16px"> * Motivo de Consulta</legend>
     <%= f.input :motivo_consulta, :label => false, :input_html => {:class => "input-xxlarge", :rows => "2"} %>
-    <legend style="font-size:16px">Enfermedad Actual</legend>
+    <legend style="font-size:16px"> * Enfermedad Actual</legend>
     <%= f.input :enfermedad_actual, :label => false, :input_html => {:class => "input-xxlarge", :rows => "2"} %>
-
+    <legend style="font-size:16px">Antecedentes personales patológicos</legend>
+    <%= f.input :ante_personales_patologicos, :label => false, :input_html => {:class => "input-xxlarge", :rows => "2"} %>
+    <legend style="font-size:16px">Antecedentes Gino-obstétricos</legend>
+    <%= f.input :ante_gino_obstetricos, :label => false, :input_html => {:class => "input-xxlarge", :rows => "2"} %>
+    <legend style="font-size:16px">Antecedentes Quirúrgicos</legend>
+    <%= f.input :ante_quirurgicos, :label => false, :input_html => {:class => "input-xxlarge", :rows => "2"} %>
+    <legend style="font-size:16px">Antecedentes Alérgicos</legend>
+    <%= f.input :ante_alergicos, :label => false, :input_html => {:class => "input-xxlarge", :rows => "1"} %>
+    <legend style="font-size:16px">Antecedentes Familiares</legend>
+    <%= f.input :ante_familiares, :label => false, :input_html => {:class => "input-xxlarge", :rows => "1"} %>
+    <legend style="font-size:16px">Examen Físico.</legend>
+    <div class='span11'>
+      <div class="span5">
+        <dl class="dl-horizontal" style="margin-bottom:0px">
+          <dt>FC</dt>
+          <dd>
+            <%= f.input :frecuencia_cardiaca, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+          <dt >TA</dt>
+          <dd>
+            <%= f.input :tension_arterial, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+          <dt>FR</dt>
+          <dd>
+            <%= f.input :frecuencia_respiratoria, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+          <dt>Temperatura</dt>
+          <dd>
+            <%= f.input :temperatura, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+        </dl>
+      </div>
+      <div class="span5">
+        <dl class="dl-horizontal" style="margin-bottom:0px">
+          <dt>Peso Actual</dt>
+          <dd>
+            <%= f.input :peso_actual, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+          <dt>Talla</dt>
+          <dd>
+            <%= f.input :talla, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+          <dt>IMC</dt>
+          <dd>
+            <%= f.input :imc, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+          <dt>%Graso</dt>
+          <dd>
+            <%= f.input :porcentage_graso, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <legend style="font-size:16px">Aparatos Y Sistemas</legend>
+    <%= f.input :ccc, :input_html => {:class => "input-xxlarge", :rows => "1"} %>
+    <%= f.input :cardiopulmonar, :input_html => {:class => "input-xxlarge", :rows => "1"} %>
+    <%= f.input :abdomen, :input_html => {:class => "input-xxlarge", :rows => "1"} %>
+    <%= f.input :extremidades, :input_html => {:class => "input-xxlarge", :rows => "1"} %>
+    <%= f.input :snc, :input_html => {:class => "input-xxlarge", :rows => "1"} %>
+    <legend style="font-size:16px">Diagnóstico</legend>
+    <%= f.input :diagnostico, :input_html => {:class => "input-xxlarge", :rows => "3"} %>
+    <legend style="font-size:16px">Tratamiento / Recomendaciones</legend>
+    <%= f.input :tratamiento, :input_html => {:class => "input-xxlarge", :rows => "3"} %>
     <button class="btn btn-primary" data-disable-with="&lt;i class='icon-white icon-refresh'&gt;&lt;/i&gt; Refresh" type="submit">
       <i class="icon-white icon-ok"></i>
       Salvar

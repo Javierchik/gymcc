@@ -2,7 +2,6 @@ class BusquedasController < ApplicationController
   before_filter :authenticate_deporte_usuario!
 
   def index
-    @socios = [ ]
     if params[:query_string].present?
       socios = Socio.arel_table
       @socios = Socio.where(:estado => "A").where(socios[:NumSocio].matches("%#{params[:query_string]}%").or(socios[:NumDocumento].matches("%#{params[:query_string]}%"))).order("NumSocio", "NombreSocio")
