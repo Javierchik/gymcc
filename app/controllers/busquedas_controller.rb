@@ -13,4 +13,9 @@ class BusquedasController < ApplicationController
     @citas_medicas = @paciente.deporte_citas_medicas.order('dia_cita DESC, hora_cita DESC')
     @historias_clinicas = @paciente.deporte_historias_clinicas.order('created_at DESC')
   end
+
+  def historia_clinica
+    @paciente = Socio.find(params[:paciente_id])
+    @historia_clinica = @paciente.deporte_historias_clinicas.find(params[:id])
+  end
 end

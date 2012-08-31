@@ -63,7 +63,7 @@
       </tr>
       <% @historias_clinicas.each do |historia_clinica| %>
         <tr>
-          <td><%= link_to historia_clinica.motivo_consulta, '#' %></td>
+          <td><%= link_to historia_clinica.motivo_consulta, paciente_historia_clinicas_path(historia_clinica.socio, historia_clinica) %></td>
           <td><%= historia_clinica.enfermedad_actual %></td>
           <td><%= historia_clinica.diagnostico %></td>
           <td><%= historia_clinica.tratamiento %></td>

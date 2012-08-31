@@ -6,9 +6,6 @@ class HistoriasClinicasController < ApplicationController
     @historias_clinicas = DeporteHistoriasClinica.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
 
-  def listado_historias
-  end
-
   def elaborar
     @paciente = Socio.find(params[:id])
     @historia_clinica = @paciente.deporte_historias_clinicas.build

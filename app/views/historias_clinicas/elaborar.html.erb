@@ -16,18 +16,18 @@
         </a>
       </li>
       <li class="span9" style="margin-bottom:0px">
-        <dl class="dl-horizontal" style="margin-bottom:0px">
-          <dt class="fix_dt">Cédula</dt>
-          <dd class="fix_dd"><%= @paciente.NumDocumento %></dd>
+        <dl class="dl-horizontal span6" style="margin-bottom:0px">
+          <dt>Doc. Identidad</dt>
+          <dd>&nbsp;<%= @paciente.NumDocumento %></dd>
           
-          <dt>Numero accion</dt>
-          <dd><%= @paciente.NumSocio %></dd>
+          <dt>Fecha Nacimiento</dt>
+          <dd>&nbsp;<%= @paciente.fecha_nacimiento %></dd>
           
-          <dt>Tel. Residencial</dt>
-          <dd><%= @paciente.TelResidencia %></dd>
+          <dt>Dir. Residencia</dt>
+          <dd>&nbsp;<%= @paciente.DirResidencia %></dd>
           
           <dt>Celular</dt>
-          <dd><%= @paciente.Celular %></dd>
+          <dd>&nbsp;<%= @paciente.Celular %></dd>
           
           <dt>Email</dt>
           <dd>
@@ -37,6 +37,16 @@
               <span class="label label-warning">El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>
             <% end %>  
           </dd>
+        </dl>
+        <dl class="dl-horizontal span6" style="margin-bottom:0px">
+          <dt>Edo. Civil</dt>
+          <dd>&nbsp;<%= @paciente.CodEstadoCivil %></dd>
+          
+          <dt>Sexo</dt>
+          <dd>&nbsp;<%= @paciente.Sexo %></dd>
+
+          <dt>Tel. Residencia</dt>
+          <dd>&nbsp;<%= @paciente.TelResidencia %></dd>
         </dl>
       </li>
     </ul>

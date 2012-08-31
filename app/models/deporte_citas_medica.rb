@@ -7,7 +7,7 @@ class DeporteCitasMedica < ActiveRecord::Base
   validates_associated :socio
 
   validates_uniqueness_of :dia_cita, :scope => :hora_cita
-  validate :cita_vigente
+  # validate :cita_vigente
 
   def estatus
     case estado

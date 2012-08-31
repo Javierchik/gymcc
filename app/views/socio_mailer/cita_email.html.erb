@@ -1,3 +1,17 @@
-Email de confirmación de Cita Médica.
-<br>
-Señor(a): <%= @cita.socio.nombre_completo %>
+<blockquote>
+  <p>
+    Señor(a): <%= @cita.socio.nombre_completo %><br>
+    Ref: Email de confirmación de Cita Médica.
+  </p>
+  <p>
+    Se ha agendado una cita médica para Usted el día <%= @cita.fecha_cita %>
+  </p>
+  <br>
+    <address>
+      <strong>Gimnasio Country Club</strong><br>
+      Calle 76 # 54-234<br>
+      Barranquilla<br>
+      <abbr title="Phone">Tel:</abbr> (5)3556677
+    </address>
+  </br>
+</blockquote>

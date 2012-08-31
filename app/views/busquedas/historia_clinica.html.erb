@@ -1,0 +1,124 @@
+<div class="page-header">
+  <h1>Detalles del Paciente</h1>
+</div>
+
+<%= render 'shared/nav_bar' %>
+
+<div class="fieldset">
+  <h3>Información Básica</h3>  
+  <div class="span11 well">
+  
+    <ul class="thumbnails" style="margin-bottom:0px">
+      <li class="span3" style="margin-bottom:0px">
+        <a href="javascript:void(0)" class="thumbnail">
+          <%#= @paciente.foto.present? ? @paciente.foto.Photo : 'No Photo' %>
+          <img src="http://placehold.it/160x200" alt="">
+        </a>
+      </li>
+      <li class="span9" style="margin-bottom:0px">
+        <dl class="dl-horizontal span6" style="margin-bottom:0px">
+          <dt>Doc. Identidad</dt>
+          <dd>&nbsp;<%= @paciente.NumDocumento %></dd>
+          
+          <dt>Fecha Nacimiento</dt>
+          <dd>&nbsp;<%= @paciente.fecha_nacimiento %></dd>
+          
+          <dt>Dir. Residencia</dt>
+          <dd>&nbsp;<%= @paciente.DirResidencia %></dd>
+          
+          <dt>Celular</dt>
+          <dd>&nbsp;<%= @paciente.Celular %></dd>
+          
+          <dt>Email</dt>
+          <dd>
+            <% if @paciente.EmailPersonal.present? %>
+              <%= @paciente.EmailPersonal %>
+            <% else %>
+              <span class="label label-warning">El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>
+            <% end %>  
+          </dd>
+        </dl>
+        <dl class="dl-horizontal span6" style="margin-bottom:0px">
+          <dt>Edo. Civil</dt>
+          <dd>&nbsp;<%= @paciente.CodEstadoCivil %></dd>
+          
+          <dt>Sexo</dt>
+          <dd>&nbsp;<%= @paciente.Sexo %></dd>
+
+          <dt>Tel. Residencia</dt>
+          <dd>&nbsp;<%= @paciente.TelResidencia %></dd>
+        </dl>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="span11 historia_clinica_detalle">
+  <legend style="font-size:16px">Motivo de Consulta</legend>
+  <pre><%= @historia_clinica.motivo_consulta %></pre>
+  <legend style="font-size:16px">Enfermedad Actual</legend>
+  <pre><%= @historia_clinica.enfermedad_actual %></pre>
+  <legend style="font-size:16px">Antecedentes personales patológicos</legend>
+  <pre><%= @historia_clinica.ante_personales_patologicos %></pre>
+  <legend style="font-size:16px">Antecedentes Gino-obstétricos</legend>
+  <pre><%= @historia_clinica.ante_gino_obstetricos %></pre>
+  <legend style="font-size:16px">Antecedentes Quirúrgicos</legend>
+  <pre><%= @historia_clinica.ante_quirurgicos %></pre>
+  <legend style="font-size:16px">Antecedentes Alérgicos</legend>
+  <pre><%= @historia_clinica.ante_alergicos %></pre>
+  <legend style="font-size:16px">Antecedentes Familiares</legend>
+  <pre><%= @historia_clinica.ante_familiares %></pre>
+  <legend style="font-size:16px">Examen Físico.</legend>
+  <div class='span11'>
+    <div class="span5">
+      <dl class="dl-horizontal" style="margin-bottom:0px">
+        <dt>FC</dt>
+        <dd>
+          <%= @historia_clinica.frecuencia_cardiaca %>
+        </dd>
+        <dt >TA</dt>
+        <dd>
+          <%= @historia_clinica.tension_arterial %>
+        </dd>
+        <dt>FR</dt>
+        <dd>
+          <%= @historia_clinica.frecuencia_respiratoria %>
+        </dd>
+        <dt>Temperatura</dt>
+        <dd>
+          <%= @historia_clinica.temperatura %>
+        </dd>
+      </dl>
+    </div>
+    <div class="span5">
+      <dl class="dl-horizontal" style="margin-bottom:0px">
+        <dt>Peso Actual</dt>
+        <dd>
+          <%= @historia_clinica.peso_actual %>
+        </dd>
+        <dt>Talla</dt>
+        <dd>
+          <%= @historia_clinica.talla %>
+        </dd>
+        <dt>IMC</dt>
+        <dd>
+          <%= @historia_clinica.imc %>
+        </dd>
+        <dt>%Graso</dt>
+        <dd>
+          <%= @historia_clinica.porcentage_graso %>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <legend style="font-size:16px">Aparatos Y Sistemas</legend>
+  <pre><label>CCC:</label>fdf<%= @historia_clinica.ccc %></pre>
+  <pre><label>Cardio Pulmonar:</label>sdfd<%= @historia_clinica.cardiopulmonar %></pre>
+  <pre><label>Abdomen:</label><%= @historia_clinica.abdomen %></pre>
+  <pre><label>Extremidades:</label><%= @historia_clinica.extremidades %></pre>
+  <pre><label>SNC:</label><%= @historia_clinica.snc %></pre>
+  <legend style="font-size:16px">Diagnóstico</legend>
+  <pre><%= @historia_clinica.diagnostico %></pre>
+  <legend style="font-size:16px">Tratamiento / Recomendaciones</legend>
+  <pre><%= @historia_clinica.tratamiento %></pre>
+</div>
