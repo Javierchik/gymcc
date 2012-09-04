@@ -16,3 +16,4 @@
 .DS_Store
 .sass-cache/*
 nclude-dependencies/*
+config/initializers/pdfkit.rb
