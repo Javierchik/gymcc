@@ -1,6 +1,5 @@
 class Socio < ActiveRecord::Base
   self.primary_key = 'IdUnicoSocio'
-  has_one :foto, :class_name => "Foto", :foreign_key => :IdPhoto
   has_one :estado_civil, :class_name => "EstadoCivil", :foreign_key => :CodEstadoCivil
   has_many :deporte_citas_medicas
   has_many :deporte_historias_clinicas
@@ -16,6 +15,14 @@ class Socio < ActiveRecord::Base
   def nombre_estado_civil
     if self.estado_civil.present?
       EstadoCivil.find(self.estado_civil).NombreEstadoCivil
+    end
+  end
+
+  def foto_socio
+    if self.IdPhoto.present?
+      "http://srvbackup1/foto/ShowImage.ashx?id=" + self.IdPhoto.to_s
+    else
+      "http://placehold.it/160x200"
     end
   end
 
