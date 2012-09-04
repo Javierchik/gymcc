@@ -4,7 +4,7 @@ class BusquedasController < ApplicationController
   def index
     if params[:query_string].present?
       socios = Socio.arel_table
-      @socios = Socio.where(:estado => "A").where(socios[:NumSocio].matches("%#{params[:query_string]}%").or(socios[:NumDocumento].matches("%#{params[:query_string]}%"))).paginate(:page => params[:page], :per_page => 10).order("NumSocio", "NombreSocio")
+      @socios = Socio.where(:estado => "A").where(socios[:NumSocio].matches(params[:query_string]).or(socios[:NumDocumento].matches(params[:query_string]))).paginate(:page => params[:page], :per_page => 10).order("NumSocio", "NombreSocio")
     end
   end
 
