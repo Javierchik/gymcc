@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country Gym</title>
+  <STYLE type="text/css"></STYLE>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= image_tag "#{Rails.root}/app/assets/images/favicon.ico", :style => 'float:left;margin-right:5px' %>
+        <%= link_to 'Country Gym', '', :class => "brand" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">    
+    <div class="row-fluid"> 
+      <%= yield %>
+    </div>
+  </div>
+
+</body>
+</html>

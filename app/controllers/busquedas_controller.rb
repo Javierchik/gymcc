@@ -1,6 +1,6 @@
 class BusquedasController < ApplicationController
   before_filter :authenticate_deporte_usuario!
-
+  
   def index
     if params[:query_string].present?
       socios = Socio.arel_table
@@ -18,4 +18,16 @@ class BusquedasController < ApplicationController
     @paciente = Socio.find(params[:paciente_id])
     @historia_clinica = @paciente.deporte_historias_clinicas.find(params[:id])
   end
+
+  def pdf
+    @paciente = Socio.find(params[:paciente_id])
+    @historia_clinica = @paciente.deporte_historias_clinicas.find(params[:id])
+    
+    html = render_to_string(:layout => 'pdf', :action => 'pdf')
+    kit = PDFKit.new(html)
+    kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/application.css"
+    send_data(kit.to_pdf, :filename => "historia_clinica.pdf", :type => 'application/pdf')
+    return # to avoid double render call
+  end
+
 end

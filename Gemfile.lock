@@ -61,6 +61,7 @@ GEM
     mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
     orm_adapter (0.4.0)
+    pdfkit (0.5.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -124,6 +125,7 @@ DEPENDENCIES
   devise (~> 2.1.2)
   jquery-rails
   mysql2
+  pdfkit (~> 0.5.2)
   rails (= 3.2.7)
   ruby-odbc (~> 0.99994)
   sass-rails (~> 3.2.4)

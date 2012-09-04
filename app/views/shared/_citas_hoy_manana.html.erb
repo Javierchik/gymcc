@@ -21,7 +21,7 @@
         <td><%= cita.socio.TelResidencia %></td>
         <td><%= cita.socio.Celular %></td>
         <td>
-          <%= link_to 'Elaborar Historia', elaborar_historias_clinica_path(cita.socio.IdUnicoSocio), :class => 'btn' if current_deporte_usuario.is?(:medico) %>
+          <%= link_to 'Elaborar Historia', elaborar_historias_clinica_path(cita.socio.IdUnicoSocio), :class => 'btn btn-mini' if current_deporte_usuario.is?(:medico) %>
         </td>
       </tr>
     <% end %>

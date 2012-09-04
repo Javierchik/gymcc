@@ -41,21 +41,21 @@ Gymcc::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # these options are only needed if you choose smtp delivery
-  # config.action_mailer.smtp_settings = {
-  #   :address              => "smtp.country.com.co",
-  #   :port                 => 25,
-  #   :user_name            => 'gymcc@country.com.co',
-  #   :password             => 'qazwsx123',
-  #   :authentication       => 'plain'
-  # }
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :user_name            => "gymcclub@gmail.com",
-    :password             => "Javierchik.",
-    :authentication       => "plain",
-    :enable_starttls_auto => true
+    :address              => "smtp.country.com.co",
+    :port                 => 25,
+    :user_name            => 'gymcc@country.com.co',
+    :password             => 'qazwsx123',
+    :authentication       => 'plain'
   }
+  # ActionMailer::Base.smtp_settings = {
+  #   :enable_starttls_auto => true,
+  #   :address              => "smtp.gmail.com",
+  #   :port                 => 587,
+  #   :user_name            => "gymcclub@gmail.com",
+  #   :password             => "Javierchik.",
+  #   :authentication       => "plain"
+  # }
 
 end

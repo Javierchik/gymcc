@@ -1,10 +1,10 @@
 // Set the correct sprite paths
 $iconSpritePath: url('glyphicons-halflings.png');
 $iconWhiteSpritePath: url('glyphicons-halflings-white.png');
-$linkColor: #2e8b57;
+$linkColor: #016D2D;
 
-$navbarBackground: #2e8b57;
-$navbarBackgroundHighlight: #2e8b57;
+$navbarBackground: #016D2D;
+$navbarBackgroundHighlight: #016D2D;
 $navbarText: #eee;
 $navbarLinkColor: #eee;
 
@@ -17,7 +17,7 @@ body {
 @import "bootstrap-responsive";
 
 .navbar .brand {
-  color: #ffd700;
+  color: #AC9718;
 }
 
 .dl-horizontal dt {
@@ -55,4 +55,8 @@ form.his_clinca .dl-horizontal dd {
 
 div.span11.historia_clinica_detalle legend {
 	margin-bottom: 5px;
+}
+
+.login-box h1 {
+	margin: 20px 20px 25px 0px;
 }

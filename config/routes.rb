@@ -33,6 +33,7 @@
   end
   
   match "/busquedas/:paciente_id/historia_clinica/:id" => "busquedas#historia_clinica", :as => :paciente_historia_clinicas
+  match "/busquedas/:paciente_id/historia_clinica/:id/pdf" => "busquedas#pdf", :as => :paciente_historia_clinicas_pdf
 
   resources :agenda, :only => [:index]
   
