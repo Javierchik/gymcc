@@ -25,7 +25,6 @@ class BusquedasController < ApplicationController
     
     html = render_to_string(:layout => 'pdf', :action => 'pdf')
     kit = PDFKit.new(html)
-    kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/application.css"
     send_data(kit.to_pdf, :filename => "historia_clinica.pdf", :type => 'application/pdf')
     return # to avoid double render call
   end

@@ -3,7 +3,7 @@
 </div>
 
 <div class="fieldset">
-  <h3>Información Básica</h3>  
+  <h3>Informaci&oacute;n B&aacute;sica</h3>  
   <div class="span11 well">
   
     <ul class="thumbnails" style="margin-bottom:0px">
@@ -13,7 +13,7 @@
           <img src="http://placehold.it/160x200" alt="">
         </a>
       </li>
-      <li class="span9" style="margin-bottom:0px">
+      <li class="span9" style="margin-bottom:0px;margin-right:0px;">
         <dl class="dl-horizontal span6" style="margin-bottom:0px">
           <dt>Doc. Identidad</dt>
           <dd>&nbsp;<%= @paciente.NumDocumento %></dd>
@@ -46,7 +46,7 @@
           <dt>Tel. Residencia</dt>
           <dd>&nbsp;<%= @paciente.TelResidencia %></dd>
 
-          <dt>Fecha Creación</dt>
+          <dt>Fecha Creaci&oacute;n</dt>
           <dd>&nbsp;<%= @historia_clinica.fecha_creacion %></dd>
         </dl>
       </li>
@@ -55,21 +55,21 @@
 </div>
 
 <div class="span11 historia_clinica_detalle">
-  <legend style="font-size:16px">Motivo de Consulta</legend>
+  <legend style="font-size:14px">Motivo de Consulta</legend>
   <pre><%= @historia_clinica.motivo_consulta %></pre>
-  <legend style="font-size:16px">Enfermedad Actual</legend>
+  <legend style="font-size:14px">Enfermedad Actual</legend>
   <pre><%= @historia_clinica.enfermedad_actual %></pre>
-  <legend style="font-size:16px">Antecedentes personales patológicos</legend>
+  <legend style="font-size:14px">Antecedentes personales patol&oacute;gicos</legend>
   <pre><%= @historia_clinica.ante_personales_patologicos %></pre>
-  <legend style="font-size:16px">Antecedentes Gino-obstétricos</legend>
+  <legend style="font-size:14px">Antecedentes Gino-obst&eacute;tricos</legend>
   <pre><%= @historia_clinica.ante_gino_obstetricos %></pre>
-  <legend style="font-size:16px">Antecedentes Quirúrgicos</legend>
+  <legend style="font-size:14px">Antecedentes Quir&uacute;rgicos</legend>
   <pre><%= @historia_clinica.ante_quirurgicos %></pre>
-  <legend style="font-size:16px">Antecedentes Alérgicos</legend>
+  <legend style="font-size:14px">Antecedentes Al&eacute;rgicos</legend>
   <pre><%= @historia_clinica.ante_alergicos %></pre>
-  <legend style="font-size:16px">Antecedentes Familiares</legend>
+  <legend style="font-size:14px">Antecedentes Familiares</legend>
   <pre><%= @historia_clinica.ante_familiares %></pre>
-  <legend style="font-size:16px">Examen Físico.</legend>
+  <legend style="font-size:14px">Examen F&iacute;sico.</legend>
   <div class='span11'>
     <div class="span5">
       <dl class="dl-horizontal" style="margin-bottom:0px">
@@ -112,14 +112,14 @@
       </dl>
     </div>
   </div>
-  <legend style="font-size:16px">Aparatos Y Sistemas</legend>
+  <legend style="font-size:14px">Aparatos Y Sistemas</legend>
   <pre><label>CCC:</label>fdf<%= @historia_clinica.ccc %></pre>
   <pre><label>Cardio Pulmonar:</label>sdfd<%= @historia_clinica.cardiopulmonar %></pre>
   <pre><label>Abdomen:</label><%= @historia_clinica.abdomen %></pre>
   <pre><label>Extremidades:</label><%= @historia_clinica.extremidades %></pre>
   <pre><label>SNC:</label><%= @historia_clinica.snc %></pre>
-  <legend style="font-size:16px">Diagnóstico</legend>
+  <legend style="font-size:14px">Diagn&oacute;stico</legend>
   <pre><%= @historia_clinica.diagnostico %></pre>
-  <legend style="font-size:16px">Tratamiento / Recomendaciones</legend>
+  <legend style="font-size:14px">Tratamiento / Recomendaciones</legend>
   <pre><%= @historia_clinica.tratamiento %></pre>
 </div>

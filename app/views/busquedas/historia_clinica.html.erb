@@ -50,6 +50,9 @@
 
           <dt>Fecha Creación</dt>
           <dd>&nbsp;<%= @historia_clinica.fecha_creacion %></dd>
+           
+          <dt>&nbsp;</dt>
+          <dd><%= link_to "Generar (PDF)", paciente_historia_clinicas_pdf_path(@historia_clinica.socio, @historia_clinica, :format => "pdf") %></dd>
         </dl>
       </li>
     </ul>
