@@ -11,8 +11,7 @@
     <ul class="thumbnails" style="margin-bottom:0px">
       <li class="span3" style="margin-bottom:0px">
         <a href="#" class="thumbnail">
-          <%#= @paciente.foto.present? ? @paciente.foto.Photo : 'No Photo' %>
-          <img src="http://placehold.it/160x200" alt="">
+          <%= image_tag @paciente.foto_socio, :width => '160px', :height => '200px' %>
         </a>
       </li>
       <li class="span9" style="margin-bottom:0px">

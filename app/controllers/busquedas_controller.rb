@@ -9,7 +9,7 @@ class BusquedasController < ApplicationController
   end
 
   def detalle
-    @paciente = Socio.find(params[:id])
+    p @paciente = Socio.find(params[:id])
     @citas_medicas = @paciente.deporte_citas_medicas.order('dia_cita DESC, hora_cita DESC')
     @historias_clinicas = @paciente.deporte_historias_clinicas.order('created_at DESC')
   end

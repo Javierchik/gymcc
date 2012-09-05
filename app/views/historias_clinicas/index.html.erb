@@ -9,7 +9,8 @@
 
   <table class="table table-striped">
     <tr>
-      <th class="dropdown-toggle" data-toggle="dropdown">Motivo Consulta</th>
+      <th class="dropdown-toggle" data-toggle="dropdown">Nombre Socio</th>
+      <th>Motivo Consulta</th>
       <th>Enfermedad Actual</th>
       <th>Diagnóstico</th>
       <th>Tratamiento</th>
@@ -17,7 +18,10 @@
 
     <% @historias_clinicas.each do |historias_clinica| %>
       <tr>
-        <td><%= link_to historias_clinica.motivo_consulta, paciente_historia_clinicas_path(historias_clinica.socio, historias_clinica) %></td>
+        <td>
+          <%= link_to historias_clinica.socio.nombre_completo, paciente_historia_clinicas_path(historias_clinica.socio, historias_clinica) %>
+        </td>  
+        <td><%= historias_clinica.motivo_consulta %></td>
         <td><%= historias_clinica.enfermedad_actual %></td>
         <td><%= historias_clinica.diagnostico %></td>
         <td><%= historias_clinica.tratamiento %></td>

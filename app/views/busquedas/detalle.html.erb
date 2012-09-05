@@ -11,7 +11,7 @@
     <ul class="thumbnails" style="margin-bottom:0px">
       <li class="span3" style="margin-bottom:0px">
         <a href="javascript:void(0)" class="thumbnail">
-          <%= image_tag @paciente.foto_socio %>
+          <%= image_tag @paciente.foto_socio, :width => '160px', :height => '200px' %>
         </a>
       </li>
       <li class="span9" style="margin-bottom:0px">
@@ -39,7 +39,7 @@
         </dl>
         <dl class="dl-horizontal span6" style="margin-bottom:0px">
           <dt>Edo. Civil</dt>
-          <dd>&nbsp;<%= @paciente.nombre_estado_civil %></dd>
+          <dd>&nbsp;<%= @paciente.estado_civil %></dd>
           
           <dt>Sexo</dt>
           <dd>&nbsp;<%= @paciente.Sexo %></dd>

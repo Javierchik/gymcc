@@ -1,6 +1,5 @@
 class Socio < ActiveRecord::Base
   self.primary_key = 'IdUnicoSocio'
-  has_one :estado_civil, :class_name => "EstadoCivil", :foreign_key => :CodEstadoCivil
   has_many :deporte_citas_medicas
   has_many :deporte_historias_clinicas
   
@@ -12,10 +11,8 @@ class Socio < ActiveRecord::Base
     I18n.localize self.FechaNacimiento, :format => '%B %d de %Y'
   end
 
-  def nombre_estado_civil
-    if self.estado_civil.present?
-      EstadoCivil.find(self.estado_civil).NombreEstadoCivil
-    end
+  def estado_civil
+    nombre_estado_civil
   end
 
   def foto_socio
@@ -24,6 +21,27 @@ class Socio < ActiveRecord::Base
     else
       "http://placehold.it/160x200"
     end
+  end
+  
+  private 
+
+  def nombre_estado_civil
+    case self.CodEstadoCivil
+      when 1 
+        return 'VIUDO'
+      when 2 
+        return 'NINGUNO'
+      when 3  
+        return 'CASADO'
+      when 4  
+        return 'VIUDA'
+      when 5  
+        return 'NO DEFINIDO'
+      when 6  
+        return 'SOLTERO'
+      when 7  
+        return 'DIVORCIADO'
+      end
   end
 
 end
