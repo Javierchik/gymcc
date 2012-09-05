@@ -3,6 +3,7 @@ development:
   dsn: gym-cc
   mode: odbc
   database: CountryClubSQL
+  encoding: "UTF-8"
 
 staging:
   adapter: mysql2
@@ -19,3 +20,4 @@ production:
   dsn: gym-cc
   mode: odbc
   database: CountryClubSQL
+  encoding: "UTF-8"
