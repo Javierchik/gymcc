@@ -4,7 +4,7 @@ class SocioMailer < ActionMailer::Base
 
   def cita_email(cita)
     @cita = cita
-    mail(:to => @cita.socio.EmailPersonal, :subject => "Cita medica en GymCC", :content_type => "text/html") do |format|
+    mail(:to => @cita.socio.EmailPersonal, :bcc => DeporteUsuario.all.collect(&:email), :subject => "Cita medica en Country Gym", :content_type => "text/html") do |format|
     	format.html
     end
   end

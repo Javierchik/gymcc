@@ -30,11 +30,7 @@
           
           <dt>Email</dt>
           <dd>
-            <% if @paciente.EmailPersonal.present? %>
-              <%= @paciente.EmailPersonal %>
-            <% else %>
-              <span class="label label-warning">El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>
-            <% end %>  
+            <%= @paciente.email %>  
           </dd>
         </dl>
         <dl class="dl-horizontal span6" style="margin-bottom:0px">
@@ -59,6 +55,7 @@
         <th>Enfermedad Actual</th>
         <th>Diagnóstico</th>
         <th>Tratamiento</th>
+        <th>Creación</th>
       </tr>
       <% @historias_clinicas.each do |historia_clinica| %>
         <tr>
@@ -66,6 +63,7 @@
           <td><%= historia_clinica.enfermedad_actual %></td>
           <td><%= historia_clinica.diagnostico %></td>
           <td><%= historia_clinica.tratamiento %></td>
+          <td><%= historia_clinica.fecha_creacion %></td>
         </tr>
       <% end %>
     </table>
@@ -78,12 +76,17 @@
         <th>Fecha Cita</th>
         <th>Día de Creación</th>
         <th>Estado</th>
+        <th></th>
       </tr>
       <% @citas_medicas.each do |cita| %>
         <tr>
           <td><%= cita.fecha_cita %></td>
           <td><%= cita.fecha_creacion %></td>
           <td><%= cita.estatus %></td>
+          <td>
+            <%= link_to 'Editar', edit_citas_medica_path(cita), :class => 'btn btn-mini'  if current_deporte_usuario.is?(:recepcion) %>
+            <%= link_to 'Eliminar', citas_medica_path(cita), :method => :delete, :confirm => 'Está seguro?', :class => 'btn btn-mini btn-danger'  if current_deporte_usuario.is?(:recepcion) %>
+          </td>
         </tr>
       <% end %>
     </table>

@@ -21,7 +21,7 @@ class DeporteCitasMedica < ActiveRecord::Base
   end
 
   def fecha_creacion
-   created_at.strftime("%d de %B - %H:%M %p")
+   created_at.strftime("%d de %B - %I:%M %p")
   end
 
   def fecha_cita

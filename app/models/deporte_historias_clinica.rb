@@ -12,4 +12,8 @@ class DeporteHistoriasClinica < ActiveRecord::Base
   def fecha_creacion
     I18n.localize self.created_at, :format => '%B %d de %Y'
   end
+
+  def grupo_paciente
+  	DeporteHistoriasClinica::GRUPO_PACIENTE[self.grupo_paciente_id][0] if self.grupo_paciente_id.present?
+  end
 end

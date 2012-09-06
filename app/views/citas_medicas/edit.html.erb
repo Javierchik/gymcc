@@ -5,38 +5,37 @@
 <%= render 'shared/nav_bar' %>
 
 <div class="fieldset">
-  <h3>Agende una Cita</h3>  
+  <h3>Edite una Cita</h3>  
   <div class="span11 well">
   
     <ul class="thumbnails" style="margin-bottom:0px">
       <li class="span3" style="margin-bottom:0px">
         <a href="#" class="thumbnail">
-          <%= image_tag @paciente.foto_socio, :width => '160px', :height => '200px' %>
+          <%= image_tag @cita_medica.socio.foto_socio, :width => '160px', :height => '200px' %>
         </a>
       </li>
       <li class="span9" style="margin-bottom:0px">
         <dl class="dl-horizontal" style="margin-bottom:0px">
           <dt class="fix_dt">Cédula</dt>
-          <dd class="fix_dd"><%= @paciente.NumDocumento %></dd>
+          <dd class="fix_dd"><%= @cita_medica.socio.NumDocumento %></dd>
           
           <dt>Numero accion</dt>
-          <dd><%= @paciente.NumSocio %></dd>
+          <dd><%= @cita_medica.socio.NumSocio %></dd>
           
           <dt>Tel. Residencial</dt>
-          <dd><%= @paciente.TelResidencia %></dd>
+          <dd><%= @cita_medica.socio.TelResidencia %></dd>
           
           <dt>Celular</dt>
-          <dd><%= @paciente.Celular %></dd>
+          <dd><%= @cita_medica.socio.Celular %></dd>
           
           <dt>Email</dt>
           <dd>
-            <%= @paciente.email %> 
+            <%= @cita_medica.socio.email %>  
           </dd>
           
           <dt>Seleccione día y hora</dt>
           <dd>
-            <%= simple_form_for @cita_medica, :url => citas_medicas_path, :html => {:class => "form-inline", :style => "margin-bottom:0px"} do |f| %>
-              <%= hidden_field_tag :id_unico_socio, @paciente.id %>
+            <%= simple_form_for @cita_medica, :url => citas_medica_path, :html => {:class => "form-inline", :style => "margin-bottom:0px"} do |f| %>
                 
               <%= f.text_field :dia_cita, :class => "input-small", :'data-behaviour' => "datepicker", :style => "margin-right: 10px;" %>
               <i class="icon-calendar" style="margin: 0 0 0 -30px; pointer-events: none; position: relative;"></i>

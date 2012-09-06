@@ -4,7 +4,7 @@ authorization do
  end
   role :recepcion do
     includes :guest
-    has_permission_on :citas_medicas, :to => [:index, :citas, :busqueda, :agendar, :create]
+    has_permission_on :citas_medicas, :to => [:manage, :citas, :busqueda, :agendar]
   end
 
   role :medico do

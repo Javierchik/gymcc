@@ -7,7 +7,7 @@
     root :to => "deporte_usuario/sessions#new"
   end
 
-  resources :citas_medicas, :only => [:index, :create] do
+  resources :citas_medicas, :except => [:show] do
     member do
       get :agendar
     end

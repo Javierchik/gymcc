@@ -30,11 +30,7 @@
           
           <dt>Email</dt>
           <dd>
-            <% if @paciente.EmailPersonal.present? %>
-              <%= @paciente.EmailPersonal %>
-            <% else %>
-              <span class="label label-warning">El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>
-            <% end %>  
+            <%= @paciente.email %>  
           </dd>
         </dl>
         <dl class="dl-horizontal span6" style="margin-bottom:0px">
@@ -93,11 +89,7 @@
           </dd>
           <dt>Grupo de Paciente</dt>
           <dd>
-            <div class="control-group string optional">
-              <div class="controls">
-                <%= select(:deporte_historias_clinica, :grupo_paciente_id, DeporteHistoriasClinica::GRUPO_PACIENTE, {:prompt => 'Seleccione'}, :class => "span12") %>
-              </div>
-            </div>
+            <%= f.input :grupo_paciente_id, :collection => DeporteHistoriasClinica::GRUPO_PACIENTE, :label => false, :input_html => {:class => "span12"} %>          
           </dd>
         </dl>
       </div>

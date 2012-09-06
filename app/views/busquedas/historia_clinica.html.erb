@@ -30,11 +30,7 @@
           
           <dt>Email</dt>
           <dd>
-            <% if @paciente.EmailPersonal.present? %>
-              <%= @paciente.EmailPersonal %>
-            <% else %>
-              <span class="label label-warning">El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>
-            <% end %>  
+            <%= @paciente.email %> 
           </dd>
         </dl>
         <dl class="dl-horizontal span6" style="margin-bottom:0px">
@@ -95,6 +91,11 @@
         <dd>
           <%= @historia_clinica.tipo_aseguradora %>
         </dd>
+        <dt>Grupo de Paciente</dt>
+        <dd>
+          <%= @historia_clinica.grupo_paciente %>
+        </dd>
+        </dt>  
       </dl>
     </div>
   </div>    

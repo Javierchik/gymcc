@@ -8,7 +8,7 @@ class Socio < ActiveRecord::Base
   end
 
   def fecha_nacimiento
-    I18n.localize self.FechaNacimiento, :format => '%B %d de %Y'
+    I18n.localize self.FechaNacimiento, :format => '%B %d de %Y' if self.FechaNacimiento.present?
   end
 
   def estado_civil
@@ -21,6 +21,14 @@ class Socio < ActiveRecord::Base
     else
       "http://placehold.it/160x200"
     end
+  end
+
+  def email
+    if self.EmailPersonal.present?
+      return self.EmailPersonal
+    else
+      return "<span class='label label-warning'>El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>".html_safe
+    end  
   end
   
   private 

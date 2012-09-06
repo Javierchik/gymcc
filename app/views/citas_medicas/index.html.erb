@@ -15,6 +15,7 @@
       <th>Nombre Completo</th>
       <th>Tel. Res.</th>
       <th>Celular</th>
+      <th></th>
     </tr>
 
     <% @citas_medicas.each do |cita| %>
@@ -25,6 +26,10 @@
         <td><%= cita.socio.nombre_completo %> </td>
         <td><%= cita.socio.TelResidencia %></td>
         <td><%= cita.socio.Celular %></td>
+        <td>
+          <%= link_to 'Editar', edit_citas_medica_path(cita), :class => 'btn btn-mini' %>
+          <%= link_to 'Eliminar', citas_medica_path(cita), :method => :delete, :confirm => 'Está seguro?', :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </table>

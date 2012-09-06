@@ -1,0 +1,18 @@
+<div class = "fieldset">
+  <h3>Ultimas citas médicas</h3>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Fecha Cita</th>
+      <th>Día de Creación</th>
+      <th>Estado</th>
+    </tr>
+    <% @citas_medicas.each do |cita| %>
+      <tr>
+        <td><%= cita.fecha_cita %></td>
+        <td><%= cita.created_at.strftime("%d de %B - %H:%M %p") %></td>
+        <td><%= cita.estatus %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
