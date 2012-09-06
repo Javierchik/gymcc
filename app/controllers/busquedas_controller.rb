@@ -22,7 +22,7 @@ class BusquedasController < ApplicationController
   def pdf
     @paciente = Socio.find(params[:paciente_id])
     @historia_clinica = @paciente.deporte_historias_clinicas.find(params[:id])
-    
+    # render :layout => 'pdf'
     html = render_to_string(:layout => 'pdf', :action => 'pdf')
     kit = PDFKit.new(html)
     send_data(kit.to_pdf, :filename => "historia_clinica.pdf", :type => 'application/pdf')

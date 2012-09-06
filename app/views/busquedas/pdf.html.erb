@@ -93,7 +93,10 @@
         </dt>  
       </dl>
     </div>
-  </div>    
+  </div>
+</div>  
+
+<div class="span11 historia_clinica_detalle">
   <legend style="font-size:14px">Motivo de Consulta</legend>
   <pre><%= @historia_clinica.motivo_consulta %></pre>
   <legend style="font-size:14px">Enfermedad Actual</legend>
@@ -109,6 +112,9 @@
   <legend style="font-size:14px">Antecedentes Familiares</legend>
   <pre><%= @historia_clinica.ante_familiares %></pre>
   <legend style="font-size:14px">Examen F&iacute;sico.</legend>
+</div>
+
+<div class="span11 historia_clinica_detalle">
   <div class='span11'>
     <div class="span5">
       <dl class="dl-horizontal" style="margin-bottom:0px">
@@ -151,6 +157,9 @@
       </dl>
     </div>
   </div>
+</div>
+
+<div class="span11 historia_clinica_detalle">
   <legend style="font-size:14px">Aparatos Y Sistemas</legend>
   <pre><label>CCC:</label>fdf<%= @historia_clinica.ccc %></pre>
   <pre><label>Cardio Pulmonar:</label>sdfd<%= @historia_clinica.cardiopulmonar %></pre>
