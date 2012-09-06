@@ -15,38 +15,34 @@
       <li class="span9" style="margin-bottom:0px;margin-right:0px;">
         <dl class="dl-horizontal span6" style="margin-bottom:0px">
           <dt>Doc. Identidad</dt>
-          <dd>&nbsp;<%= @paciente.NumDocumento %></dd>
+          <dd><%= @paciente.NumDocumento %></dd>
           
           <dt>Fecha Nacimiento</dt>
-          <dd>&nbsp;<%= @paciente.fecha_nacimiento %></dd>
+          <dd><%= @paciente.fecha_nacimiento %></dd>
           
           <dt>Dir. Residencia</dt>
-          <dd>&nbsp;<%= @paciente.DirResidencia %></dd>
+          <dd><%= @paciente.DirResidencia %></dd>
           
           <dt>Celular</dt>
-          <dd>&nbsp;<%= @paciente.Celular %></dd>
+          <dd><%= @paciente.Celular %></dd>
           
           <dt>Email</dt>
           <dd>
-            <% if @paciente.EmailPersonal.present? %>
-              <%= @paciente.EmailPersonal %>
-            <% else %>
-              <span class="label label-warning">El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>
-            <% end %>  
+              <%= @paciente.email %> 
           </dd>
         </dl>
         <dl class="dl-horizontal span6" style="margin-bottom:0px">
           <dt>Edo. Civil</dt>
-          <dd>&nbsp;<%= @paciente.CodEstadoCivil %></dd>
+          <dd><%= @paciente.CodEstadoCivil %></dd>
           
           <dt>Sexo</dt>
-          <dd>&nbsp;<%= @paciente.Sexo %></dd>
+          <dd><%= @paciente.Sexo %></dd>
 
           <dt>Tel. Residencia</dt>
-          <dd>&nbsp;<%= @paciente.TelResidencia %></dd>
+          <dd><%= @paciente.TelResidencia %></dd>
 
           <dt>Fecha Creaci&oacute;n</dt>
-          <dd>&nbsp;<%= @historia_clinica.fecha_creacion %></dd>
+          <dd><%= @historia_clinica.fecha_creacion %></dd>
         </dl>
       </li>
     </ul>
@@ -78,15 +74,15 @@
     </div>
     <div class="span4">
       <dl class="dl-horizontal" style="margin-bottom:0px">
-        <dt >Teléfono</dt>
+        <dt >Tel&eacute;fono</dt>
         <dd>
           <%= @historia_clinica.telefono_acompanante %>
         </dd>
-        <dt>Teléfono</dt>
+        <dt>Tel&eacute;fono</dt>
         <dd>
           <%= @historia_clinica.telefono_responsable %>
         </dd>
-        <dt>Tipo vinculación</dt>
+        <dt>Tipo vinculaci&oacute;n</dt>
         <dd>
           <%= @historia_clinica.tipo_aseguradora %>
         </dd>
