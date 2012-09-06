@@ -9,8 +9,7 @@
     <ul class="thumbnails" style="margin-bottom:0px">
       <li class="span3" style="margin-bottom:0px">
         <a href="javascript:void(0)" class="thumbnail">
-          <%#= @paciente.foto.present? ? @paciente.foto.Photo : 'No Photo' %>
-          <img src="http://placehold.it/160x200" alt="">
+          <%= image_tag @paciente.foto_socio, :width => '160px', :height => '200px' %>
         </a>
       </li>
       <li class="span9" style="margin-bottom:0px;margin-right:0px;">
@@ -55,6 +54,45 @@
 </div>
 
 <div class="span11 historia_clinica_detalle">
+  <legend style="font-size:16px"></legend>
+  <div class='span11'>
+    <div class="span7">
+      <dl class="dl-horizontal" style="margin-bottom:0px">
+        <dt>Nombre de acompañante</dt>
+        <dd>
+          <%= @historia_clinica.nombre_acompanante %>
+        </dd>
+        <dt>Persona responsable</dt>
+        <dd>
+          <%= @historia_clinica.nombre_responsable %>
+        </dd>
+        <dt>Aseguradora (E.P.S.)</dt>
+        <dd>
+          <%= @historia_clinica.nombre_aseguradora %>
+        </dd>
+        <dt>Tipo de sangre</dt>
+        <dd>
+          <%= @historia_clinica.tipo_sangre %>
+        </dd>
+      </dl>
+    </div>
+    <div class="span4">
+      <dl class="dl-horizontal" style="margin-bottom:0px">
+        <dt >Teléfono</dt>
+        <dd>
+          <%= @historia_clinica.telefono_acompanante %>
+        </dd>
+        <dt>Teléfono</dt>
+        <dd>
+          <%= @historia_clinica.telefono_responsable %>
+        </dd>
+        <dt>Tipo vinculación</dt>
+        <dd>
+          <%= @historia_clinica.tipo_aseguradora %>
+        </dd>
+      </dl>
+    </div>
+  </div>    
   <legend style="font-size:14px">Motivo de Consulta</legend>
   <pre><%= @historia_clinica.motivo_consulta %></pre>
   <legend style="font-size:14px">Enfermedad Actual</legend>

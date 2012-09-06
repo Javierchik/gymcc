@@ -55,7 +55,53 @@
 <div class="span11">
   <%= simple_form_for @historia_clinica, :url => historias_clinicas_path, :html => {:class => "form-horizontal his_clinca", :style => "margin-bottom:0px"} do |f| %>
     <%= hidden_field_tag :id_unico_socio, @paciente.id %>
-         
+    <legend style="font-size:16px"></legend>
+    <div class='span11'>
+      <div class="span7">
+        <dl class="dl-horizontal" style="margin-bottom:0px">
+          <dt>Nombre de acompañante</dt>
+          <dd>
+            <%= f.input :nombre_acompanante, :label => false, :input_html => {:class => "input-large"} %>
+          </dd>
+          <dt>Persona responsable</dt>
+          <dd>
+            <%= f.input :nombre_responsable, :label => false, :input_html => {:class => "input-large"} %>
+          </dd>
+          <dt>Aseguradora (E.P.S.)</dt>
+          <dd>
+            <%= f.input :nombre_aseguradora, :label => false, :input_html => {:class => "input-large"} %>
+          </dd>
+          <dt>Tipo de sangre</dt>
+          <dd>
+            <%= f.input :tipo_sangre, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+        </dl>
+      </div>
+      <div class="span4">
+        <dl class="dl-horizontal" style="margin-bottom:0px">
+          <dt>Teléfono</dt>
+          <dd>
+            <%= f.input :telefono_acompanante, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+          <dt>Teléfono</dt>
+          <dd>
+            <%= f.input :telefono_responsable, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+          <dt>Tipo vinculación</dt>
+          <dd>
+            <%= f.input :tipo_aseguradora, :label => false, :input_html => {:class => "input-small"} %>
+          </dd>
+          <dt>Grupo de Paciente</dt>
+          <dd>
+            <div class="control-group string optional">
+              <div class="controls">
+                <%= select(:deporte_historias_clinica, :grupo_paciente_id, DeporteHistoriasClinica::GRUPO_PACIENTE, {:prompt => 'Seleccione'}, :class => "span12") %>
+              </div>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>    
     <legend style="font-size:16px"> * Motivo de Consulta</legend>
     <%= f.input :motivo_consulta, :label => false, :input_html => {:class => "input-xxlarge", :rows => "2"} %>
     <legend style="font-size:16px"> * Enfermedad Actual</legend>
