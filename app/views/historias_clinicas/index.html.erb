@@ -18,11 +18,10 @@
 
     <% @historias_clinicas.each do |historias_clinica| %>
       <tr>
-        <% p historias_clinica %>
         <td>
           <%= link_to historias_clinica.socio.nombre_completo, paciente_historia_clinicas_path(historias_clinica.socio, historias_clinica) %>
         </td>  
-        <td><%= historias_clinica.motivo_consulta.to_s.force_encoding("UTF-8") %></td>
+        <td><%= historias_clinica.motivo_consulta %></td>
         <td><%= historias_clinica.enfermedad_actual %></td>
         <td><%= historias_clinica.diagnostico %></td>
         <td><%= historias_clinica.tratamiento %></td>

@@ -17,7 +17,7 @@
 $(document).ready(function(){
   $(document).on("focus", "[data-behaviour~='datepicker']", function(e){
     $(this).datepicker({"format": "yyyy-mm-dd", 
-    	                "weekStart": 1, "autoclose": true, "startDate": new Date() });
+                      "weekStart": 1, "autoclose": true, "startDate": new Date() });
   });
 
   $(document).on("focus", "[data-behaviour~='timepicker']", function(e){

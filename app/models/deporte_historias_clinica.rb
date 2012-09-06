@@ -16,4 +16,20 @@ class DeporteHistoriasClinica < ActiveRecord::Base
   def grupo_paciente
   	DeporteHistoriasClinica::GRUPO_PACIENTE[self.grupo_paciente_id][0] if self.grupo_paciente_id.present?
   end
+
+  def motivo_consulta
+    self.read_attribute(:motivo_consulta).to_s.force_encoding("UTF-8")
+  end
+
+  def enfermedad_actual
+    self.read_attribute(:enfermedad_actual).to_s.force_encoding("UTF-8")
+  end
+
+  def diagnostico
+    self.read_attribute(:diagnostico).to_s.force_encoding("UTF-8")
+  end
+
+  def diagnostico
+    self.read_attribute(:diagnostico).to_s.force_encoding("UTF-8")
+  end  
 end

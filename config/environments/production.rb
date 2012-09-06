@@ -12,7 +12,7 @@ Gymcc::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  config.assets.compress = false
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
@@ -65,9 +65,7 @@ Gymcc::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = { :host => 'srvbackup1' }
-  
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'country.com.co' }
 
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
