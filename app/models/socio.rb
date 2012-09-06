@@ -15,6 +15,10 @@ class Socio < ActiveRecord::Base
     nombre_estado_civil
   end
 
+  def sexo
+    self.Sexo.to_s.force_encoding("UTF-8")
+  end
+
   def foto_socio
     if self.IdPhoto.present?
       "http://srvbackup1/foto/ShowImage.ashx?id=" + self.IdPhoto.to_s
