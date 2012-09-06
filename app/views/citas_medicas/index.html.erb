@@ -28,7 +28,7 @@
         <td><%= cita.socio.Celular %></td>
         <td>
           <%= link_to 'Editar', edit_citas_medica_path(cita), :class => 'btn btn-mini' %>
-          <%= link_to 'Eliminar', citas_medica_path(cita), :method => :delete, :confirm => 'Está seguro?', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Eliminar', citas_medica_path(cita), :method => :delete, :data => {:confirm => 'Está seguro?'}, :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>

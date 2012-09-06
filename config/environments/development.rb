@@ -35,7 +35,7 @@ Gymcc::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { :host => 'country.com.co' }
+  config.action_mailer.default_url_options = { :host => 'srvbackup1' }
 
   # set delivery method to :smtp, :sendmail or :test
   config.action_mailer.delivery_method = :smtp
