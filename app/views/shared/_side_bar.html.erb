@@ -32,29 +32,35 @@
       Agenda
     </a>
   </li>
-
-  <li <%= set_as_current_tab(cita, false, 'active') %> >
-    <a href = <%= citas_medicas_path %>>
-      <i class= "icon-book <%= set_as_current_tab(cita, true, 'icon-white') %>"></i> 
-      Citas Médicas
-    </a>
-  </li>
   
-  <li <%= set_as_current_tab(historia, false, 'active') %> >
-    <a href = <%= historias_clinicas_path %> >
-      <i class= "icon-list-alt <%= set_as_current_tab(historia, true, 'icon-white') %>"></i> 
-      Historias Clínicas
-    </a>
-  </li>
-
-  <li class="nav-header">Configuración</li>
-
-  <li <%= set_as_current_tab(usuario, false, 'active') %> >
-    <a href = <%= deporte_usuarios_path %> >
-      <i class= "icon-user <%= set_as_current_tab(usuario, true, 'icon-white') %>"></i> 
-      Usuários</a>
-  </li>
+  <% if current_deporte_usuario.is?(:recepcion) %>
+    <li <%= set_as_current_tab(cita, false, 'active') %> >
+      <a href = <%= citas_medicas_path %>>
+        <i class= "icon-book <%= set_as_current_tab(cita, true, 'icon-white') %>"></i> 
+        Citas Médicas
+      </a>
+    </li>
+  <% end %>
   
+  <% if current_deporte_usuario.is?(:medico) %>
+    <li <%= set_as_current_tab(historia, false, 'active') %> >
+      <a href = <%= historias_clinicas_path %> >
+        <i class= "icon-list-alt <%= set_as_current_tab(historia, true, 'icon-white') %>"></i> 
+        Historias Clínicas
+      </a>
+    </li>
+  <% end %>
+
+  <% if current_deporte_usuario.is?(:administrador) %>
+    <li class="nav-header">Configuración</li>
+
+    <li <%= set_as_current_tab(usuario, false, 'active') %> >
+      <a href = <%= deporte_usuarios_path %> >
+        <i class= "icon-user <%= set_as_current_tab(usuario, true, 'icon-white') %>"></i> 
+        Usuários</a>
+    </li>
+  <% end %>
+
   <li class="divider"></li>
 
   <li><a href="#"><i class="icon-flag"></i> Ayuda</a></li>

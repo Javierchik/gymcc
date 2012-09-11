@@ -21,7 +21,7 @@ class DeporteCitasMedica < ActiveRecord::Base
   end
 
   def fecha_creacion
-   created_at.strftime("%d de %B - %I:%M %p")
+    I18n.localize created_at, :format => :short
   end
 
   def fecha_cita
@@ -29,11 +29,11 @@ class DeporteCitasMedica < ActiveRecord::Base
   end
 
   def hora
-    I18n.localize hora_cita, :format => :hora_minuto
+    hora_cita
   end
 
   def dia
-    I18n.localize dia_cita, :format => :short
+    dia_cita
   end
 
   def cita_vigente
@@ -41,4 +41,12 @@ class DeporteCitasMedica < ActiveRecord::Base
       errors.add(:dia_cita, "El usuario ya tiene una cita Agendada.")
     end
   end
+
+  def hora_cita
+    self.read_attribute(:hora_cita).strftime("%I:%M %p").to_s.force_encoding("UTF-8")
+  end
+
+  def dia_cita
+    self.read_attribute(:dia_cita).strftime("%Y-%m-%d").to_s.force_encoding("UTF-8")
+  end 
 end

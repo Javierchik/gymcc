@@ -37,10 +37,10 @@
           <dd>
             <%= simple_form_for @cita_medica, :url => citas_medica_path, :html => {:class => "form-inline", :style => "margin-bottom:0px"} do |f| %>
                 
-              <%= f.text_field :dia_cita, :class => "input-small", :'data-behaviour' => "datepicker", :style => "margin-right: 10px;" %>
+              <%= f.text_field :dia_cita, :class => "input-small", :'data-behaviour' => "datepicker", :style => "margin-right: 10px;", :value => @cita_medica.dia %>
               <i class="icon-calendar" style="margin: 0 0 0 -30px; pointer-events: none; position: relative;"></i>
                  
-              <%= f.text_field :hora_cita, :class => "timepicker-2 input-small", :'data-behaviour' => "timepicker", :style => "margin-right: 10px;" %>
+              <%= f.text_field :hora_cita, :class => "timepicker-2 input-small", :'data-behaviour' => "timepicker", :style => "margin-right: 10px;", :value => @cita_medica.hora  %>
               <i class="icon-time" style="margin: 0 0 0 -30px; pointer-events: none; position: relative;"></i>
                   
               <button class="btn btn-primary" data-disable-with="&lt;i class='icon-white icon-refresh'&gt;&lt;/i&gt; Refresh" type="submit">

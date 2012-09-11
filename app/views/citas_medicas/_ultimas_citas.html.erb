@@ -10,7 +10,7 @@
     <% @citas_medicas.each do |cita| %>
       <tr>
         <td><%= cita.fecha_cita %></td>
-        <td><%= cita.created_at.strftime("%d de %B - %H:%M %p") %></td>
+        <td><%= cita.fecha_creacion %></td>
         <td><%= cita.estatus %></td>
       </tr>
     <% end %>
