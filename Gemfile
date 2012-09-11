@@ -7,6 +7,8 @@ gem "devise", "~> 2.1.2"
 gem "simple_form", "~> 2.0.2"
 gem "declarative_authorization", "~> 0.5.5"
 gem "pdfkit", "~> 0.5.2"
+gem "thin", "~> 1.2.11"
+gem "eventmachine", "~> 1.0.0"
 
 group :development do
   gem 'ruby-odbc', "~> 0.99994"

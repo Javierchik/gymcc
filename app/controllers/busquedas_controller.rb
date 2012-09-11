@@ -9,7 +9,7 @@ class BusquedasController < ApplicationController
   end
 
   def detalle
-    p @paciente = Socio.find(params[:id])
+    @paciente = Socio.find(params[:id])
     @citas_medicas = @paciente.deporte_citas_medicas.order('dia_cita DESC, hora_cita DESC')
     @historias_clinicas = @paciente.deporte_historias_clinicas.order('created_at DESC')
   end
@@ -22,10 +22,10 @@ class BusquedasController < ApplicationController
   def pdf
     @paciente = Socio.find(params[:paciente_id])
     @historia_clinica = @paciente.deporte_historias_clinicas.find(params[:id])
-    # render :layout => 'pdf'
-    html = render_to_string(:layout => 'pdf', :action => 'pdf')
+    
+    html = render_to_string(:layout => false, :action => 'pdf')
     kit = PDFKit.new(html)
-    send_data(kit.to_pdf, :filename => "historia_clinica.pdf", :type => 'application/pdf')
+    send_data(kit.to_pdf, :filename => "historia_clinica.pdf", :type => :pdf)
     return # to avoid double render call
   end
 

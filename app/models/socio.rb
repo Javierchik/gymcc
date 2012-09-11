@@ -33,9 +33,7 @@ class Socio < ActiveRecord::Base
     else
       return "<span class='label label-warning'>El Socio no posee cuenta de correo. Por favor dirijase a Deportes</span>".html_safe
     end  
-  end
-  
-  private 
+  end 
 
   def nombre_estado_civil
     case self.CodEstadoCivil
