@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'pdfkit'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -60,7 +59,5 @@ module Gymcc
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-
-    config.middleware.use PDFKit::Middleware, :print_media_type => true
   end
 end

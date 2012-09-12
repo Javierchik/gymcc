@@ -64,7 +64,6 @@ GEM
     mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
     orm_adapter (0.4.0)
-    pdfkit (0.5.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -123,6 +122,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    wicked_pdf (0.7.9)
     will_paginate (3.0.3)
 
 PLATFORMS
@@ -137,11 +137,11 @@ DEPENDENCIES
   eventmachine (~> 1.0.0)
   jquery-rails
   mysql2
-  pdfkit (~> 0.5.2)
   rails (= 3.2.7)
   ruby-odbc (~> 0.99994)
   sass-rails (~> 3.2.4)
   simple_form (~> 2.0.2)
   thin (~> 1.2.11)
   uglifier (>= 1.0.3)
+  wicked_pdf (~> 0.7.9)
   will_paginate (~> 3.0.3)

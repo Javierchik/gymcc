@@ -17,16 +17,16 @@ class BusquedasController < ApplicationController
   def historia_clinica
     @paciente = Socio.find(params[:paciente_id])
     @historia_clinica = @paciente.deporte_historias_clinicas.find(params[:id])
-  end
-
-  def pdf
-    @paciente = Socio.find(params[:paciente_id])
-    @historia_clinica = @paciente.deporte_historias_clinicas.find(params[:id])
-    
-    html = render_to_string(:layout => false, :action => 'pdf')
-    kit = PDFKit.new(html)
-    send_data(kit.to_pdf, :filename => "historia_clinica.pdf", :type => :pdf)
-    return # to avoid double render call
+    respond_to do |format| 
+      format.html
+      format.pdf do
+        render :pdf  => "Historia_clinica_#{@paciente.nombre_completo}_#{Time.now.to_i}",
+               :template => "busquedas/pdf.html.erb",
+               :layout   => "pdf.html.erb",
+               :show_as_html => params[:debug].present?
+      end
+  
+    end
   end
 
 end
