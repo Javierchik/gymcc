@@ -12,4 +12,9 @@ module ApplicationHelper
     sources.collect { |source| "<style type='text/css'>#{Rails.application.assets.find_asset(source+".css")}</style>"}.join("\n").html_safe
   end
 
+  def wicked_pdf_image_tag(img, options={})
+    asset = Rails.application.assets.find_asset(img)
+    image_tag "file://#{asset.pathname.to_s}", options
+  end
+
 end

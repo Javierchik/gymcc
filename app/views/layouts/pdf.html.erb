@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>Country Gym</title>
-  <%= wicked_pdf_stylesheet_link_tag "application" %>
+  <%= wicked_pdf_stylesheet_link_tag "pdf" %>
 </head>
 <body>
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <%= image_tag "http://srvbackup1:3000/assets/favicon.png", :style => 'float:left;margin-right:5px' %>
+        <%= wicked_pdf_image_tag "favicon.png", :style => 'float:left;margin-right:5px' %>
         <%= link_to 'Country Gym', '', :class => "brand" %>
       </div>
     </div>

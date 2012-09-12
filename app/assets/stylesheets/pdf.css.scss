@@ -1,0 +1,63 @@
+// Set the correct sprite paths
+$iconSpritePath: url('glyphicons-halflings.png');
+$iconWhiteSpritePath: url('glyphicons-halflings-white.png');
+$linkColor: #016D2D;
+
+$navbarBackground: #016D2D;
+$navbarBackgroundHighlight: #016D2D;
+$navbarText: #eee;
+$navbarLinkColor: #eee;
+
+body { 
+	padding-top: 60px;
+}
+
+// I gather this file is a starting point for the project.
+@import "bootstrap";
+
+
+.navbar .brand {
+  color: #AC9718;
+}
+
+.dl-horizontal dt {
+	float: left;
+	width: 130px;
+	clear: left;
+	text-align: right;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-bottom: 13px;
+}
+
+.dl-horizontal dd {
+	margin-left: 140px;
+	padding-bottom: 13px;
+	min-height: 17px;
+}
+
+form.his_clinca legend + .control-group {
+  margin-top: 5px;
+}
+
+form.his_clinca legend {
+  margin-bottom: 0px;
+}
+
+form.his_clinca dt {
+  font-weight:normal;
+}
+
+form.his_clinca .dl-horizontal dd {
+	margin-left: 0px;
+	padding-bottom: 0px;
+}
+
+div.span11.historia_clinica_detalle legend {
+	margin-bottom: 5px;
+}
+
+.login-box h1 {
+	margin: 20px 20px 25px 0px;
+}
