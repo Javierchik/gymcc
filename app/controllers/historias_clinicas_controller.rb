@@ -16,12 +16,35 @@ class HistoriasClinicasController < ApplicationController
     @historia_clinica = @paciente.deporte_historias_clinicas.build params[:deporte_historias_clinica]
     
     if @historia_clinica.save
-      flash[:notice] = "Se ha agendado creado la historia con exito."
+      flash[:notice] = "Se ha creado la historia con exito."
       redirect_to historias_clinicas_path
     else
       flash[:error] = "No se puede guardar la historia. Verifique los campos requeridos *."
       render :elaborar
     end
+  end
+
+  def edit
+    @historia_clinica = DeporteHistoriasClinica.find(params[:id])
+    @paciente = @historia_clinica.socio
+  end
+
+  def update
+    @historia_clinica = DeporteHistoriasClinica.find(params[:id])
+    if @historia_clinica.update_attributes(params[:deporte_historias_clinica])
+      flash[:notice] = "Se ha actualizado la historia con exito."
+      redirect_to historias_clinicas_path
+    else
+      flash[:error] = "No se puede guardar la historia. Verifique los campos requeridos *."
+      render :edit
+    end
+  end
+
+  def destroy
+    @historia_clinica = DeporteHistoriasClinica.find(params[:id])
+    @historia_clinica.destroy
+    flash[:notice] = "Se ha eliminado la historia con exito."
+    redirect_to historias_clinicas_path
   end
 
 end

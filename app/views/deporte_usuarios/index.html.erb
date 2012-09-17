@@ -31,9 +31,9 @@
           <td><%= usuario.direccion_residencia %></td>
           <td><%= usuario.telefono_residencia %></td>
           <td>
-          <%= link_to 'Editar', edit_deporte_usuario_path(usuario), :class => 'btn btn-mini' %>
-          <%= link_to 'Eliminar', deporte_usuario_path(usuario), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
+            <%= link_to 'Editar', edit_deporte_usuario_path(usuario), :class => 'btn btn-mini' %>
+            <%= link_to 'Eliminar', deporte_usuario_path(usuario), :method => :delete, :confirm => 'Está seguro?', :class => 'btn btn-mini btn-danger' %>
+          </td>
         </tr>
       <% end %>
     </table>

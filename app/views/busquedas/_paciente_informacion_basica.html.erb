@@ -1,0 +1,42 @@
+<div class="span11 well">
+  <ul class="thumbnails" style="margin-bottom:0px">
+    <li class="span3" style="margin-bottom:0px">
+      <a href="javascript:void(0)" class="thumbnail">
+        <%= image_tag @paciente.foto_socio, :width => '160px', :height => '200px' %>
+      </a>
+    </li>
+    <li class="span9" style="margin-bottom:0px">
+      <dl class="dl-horizontal span6" style="margin-bottom:0px">
+        <dt>Doc. Identidad</dt>
+        <dd>&nbsp;<%= @paciente.NumDocumento %></dd>
+        
+        <dt>Fecha Nacimiento</dt>
+        <dd>&nbsp;<%= @paciente.fecha_nacimiento %></dd>
+        
+        <dt>Dir. Residencia</dt>
+        <dd>&nbsp;<%= @paciente.DirResidencia %></dd>
+        
+        <dt>Celular</dt>
+        <dd>&nbsp;<%= @paciente.Celular %></dd>
+        
+        <dt>Email</dt>
+        <dd>
+          <%= @paciente.email %>  
+        </dd>
+      </dl>
+      <dl class="dl-horizontal span6" style="margin-bottom:0px">
+        <dt>Edo. Civil</dt>
+        <dd>&nbsp;<%= @paciente.nombre_estado_civil %></dd>
+        
+        <dt>Sexo</dt>
+        <dd>&nbsp;<%= @paciente.sexo %></dd>
+
+        <dt>Tel. Residencia</dt>
+        <dd>&nbsp;<%= @paciente.TelResidencia %></dd>
+
+        <dt>&nbsp;</dt>
+        <dd><%= link_to "Generar (PDF)", detalle_busqueda_path(@paciente.id, :format => "pdf") %></dd>
+      </dl>
+    </li>
+  </ul>
+</div>

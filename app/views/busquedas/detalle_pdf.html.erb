@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1><%= @paciente.nombre_completo %></h1>
+</div>
+
+<div class="fieldset">
+  <h3>Informaci&oacute;n B&aacute;sica</h3>  
+  <%= render :partial => "paciente_informacion_basica.html.erb" %>
+  <%= render :partial => "paciente_historias_clinicas.html.erb" %>
+  <%= render :partial => "paciente_citas_medicas.html.erb" %>
+</div>

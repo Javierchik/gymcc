@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Historias Clínicas</h1>
+  <h1>Historias Cl&iacute;nicas</h1>
 </div>
 
 <%= render 'shared/nav_bar' %>
@@ -12,8 +12,9 @@
       <th class="dropdown-toggle" data-toggle="dropdown">Nombre Socio</th>
       <th>Motivo Consulta</th>
       <th>Enfermedad Actual</th>
-      <th>Diagnóstico</th>
+      <th>Diagn&oacute;stico</th>
       <th>Recomendaciones</th>
+      <th></th>
     </tr>
 
     <% @historias_clinicas.each do |historias_clinica| %>
@@ -25,6 +26,10 @@
         <td><%= historias_clinica.enfermedad_actual %></td>
         <td><%= historias_clinica.diagnostico %></td>
         <td><%= historias_clinica.recomendaciones %></td>
+        <td>
+          <%= link_to 'Editar', edit_historias_clinica_path(historias_clinica), :class => 'btn btn-mini' %>
+          <%= link_to 'Eliminar', historias_clinica_path(historias_clinica), :method => :delete, :data => {:confirm => 'Está seguro?'}, :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </table>

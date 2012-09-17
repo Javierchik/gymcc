@@ -17,7 +17,7 @@
     end
   end
 
-  resources :historias_clinicas, :only => [:index, :create] do
+  resources :historias_clinicas, :except => [:show]  do
     member do
       get :listado_historias
       get :elaborar
@@ -33,7 +33,6 @@
   end
   
   match "/busquedas/:paciente_id/historia_clinica/:id" => "busquedas#historia_clinica", :as => :paciente_historia_clinicas
-  match "/busquedas/:paciente_id/historia_clinica/:id/pdf" => "busquedas#pdf", :as => :paciente_historia_clinicas_pdf
 
   resources :agenda, :only => [:index]
   

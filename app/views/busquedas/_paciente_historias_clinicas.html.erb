@@ -1,0 +1,22 @@
+<div class = "fieldset">
+  <h3>Ultimas Historias Cl&iacute;nicas</h3>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Motivo Consulta</th>
+      <th>Enfermedad Actual</th>
+      <th>Diagn&oacute;stico</th>
+      <th>Recomendaciones</th>
+      <th>Creaci&oacute;n</th>
+    </tr>
+    <% @historias_clinicas.each do |historia_clinica| %>
+      <tr>
+        <td><%= link_to historia_clinica.motivo_consulta, paciente_historia_clinicas_path(historia_clinica.socio, historia_clinica) %></td>
+        <td><%= historia_clinica.enfermedad_actual %></td>
+        <td><%= historia_clinica.diagnostico %></td>
+        <td><%= historia_clinica.recomendaciones %></td>
+        <td><%= historia_clinica.fecha_creacion %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

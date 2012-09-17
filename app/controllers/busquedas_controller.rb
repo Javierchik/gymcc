@@ -12,6 +12,15 @@ class BusquedasController < ApplicationController
     @paciente = Socio.find(params[:id])
     @citas_medicas = @paciente.deporte_citas_medicas.order('dia_cita DESC, hora_cita DESC')
     @historias_clinicas = @paciente.deporte_historias_clinicas.order('created_at DESC')
+    respond_to do |format| 
+      format.html
+      format.pdf do
+        render :pdf  => "Historial_#{@paciente.nombre_completo}_#{Time.now.to_i}",
+               :template => "busquedas/detalle_pdf.html.erb",
+               :layout   => "pdf.html.erb"
+      end
+  
+    end
   end
 
   def historia_clinica
@@ -22,8 +31,7 @@ class BusquedasController < ApplicationController
       format.pdf do
         render :pdf  => "Historia_clinica_#{@paciente.nombre_completo}_#{Time.now.to_i}",
                :template => "busquedas/pdf.html.erb",
-               :layout   => "pdf.html.erb",
-               :show_as_html => params[:debug].present?
+               :layout   => "pdf.html.erb"
       end
   
     end

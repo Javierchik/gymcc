@@ -1,0 +1,23 @@
+<div class = "fieldset">
+  <h3>Ultimas Citas M&eacute;dicas</h3>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Fecha Cita</th>
+      <th>D&iacute;a de Creaci&oacute;n</th>
+      <th>Estado</th>
+      <th></th>
+    </tr>
+    <% @citas_medicas.each do |cita| %>
+      <tr>
+        <td><%= cita.fecha_cita %></td>
+        <td><%= cita.fecha_creacion %></td>
+        <td><%= cita.estatus %></td>
+        <td>
+          <%= link_to 'Editar', edit_citas_medica_path(cita), :class => 'btn btn-mini'  if current_deporte_usuario.is?(:recepcion) %>
+          <%= link_to 'Eliminar', citas_medica_path(cita), :method => :delete, :class => 'btn btn-mini btn-danger', :data => { :confirm => 'Está seguro?' }  if current_deporte_usuario.is?(:recepcion) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

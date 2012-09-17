@@ -5,7 +5,7 @@
 <%= render 'shared/nav_bar' %>
 
 <div class="fieldset">
-  <h3>Elabore una historia cl&iacute;nica.</h3>  
+  <h3>Edite la historia cl&iacute;nica.</h3>  
   <div class="span11 well">
   
     <ul class="thumbnails" style="margin-bottom:0px">
@@ -49,7 +49,7 @@
 </div>
 
 <div class="span11">
-  <%= simple_form_for @historia_clinica, :url => historias_clinicas_path, :html => {:class => "form-horizontal his_clinca", :style => "margin-bottom:0px"} do |f| %>
+  <%= simple_form_for @historia_clinica, :url => historias_clinica_path(@historia_clinica), :html => {:class => "form-horizontal his_clinca", :style => "margin-bottom:0px"} do |f| %>
     <%= hidden_field_tag :id_unico_socio, @paciente.id %>
     <legend style="font-size:16px"></legend>
     <div class='span11'>

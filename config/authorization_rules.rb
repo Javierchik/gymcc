@@ -9,7 +9,7 @@ authorization do
 
   role :medico do
     includes :guest
-    has_permission_on :deporte_historias_clinicas, :to => [:index, :create, :elaborar]
+    has_permission_on :deporte_historias_clinicas, :to => [:manage, :elaborar]
   end
 
   role :administrador do
@@ -21,8 +21,8 @@ end
 privileges do
   # default privilege hierarchies to facilitate RESTful Rails apps
   privilege :manage, :includes => [:create, :read, :update, :delete]
-  privilege :read, :includes => [:index, :show]
   privilege :create, :includes => :new
+  privilege :read, :includes => [:index, :show]
   privilege :update, :includes => :edit
   privilege :delete, :includes => :destroy
 end
