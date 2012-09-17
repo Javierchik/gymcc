@@ -1,9 +1,11 @@
 <div class="page-header">
-  <h1><%= @paciente.nombre_completo %></h1>
+  <h1>Detalles del Paciente</h1>
 </div>
 
+<%= render 'shared/nav_bar' %>
+
 <div class="fieldset">
-  <h3>Informaci&oacute;n B&aacute;sica</h3>  
+  <h3>Información Básica</h3>  
   <div class="span11 well">
   
     <ul class="thumbnails" style="margin-bottom:0px">
@@ -12,7 +14,7 @@
           <%= image_tag @paciente.foto_socio, :width => '160px', :height => '200px' %>
         </a>
       </li>
-      <li class="span9" style="margin-bottom:0px;margin-right:0px;">
+      <li class="span9" style="margin-bottom:0px">
         <dl class="dl-horizontal span6" style="margin-bottom:0px">
           <dt>Doc. Identidad</dt>
           <dd><%= @paciente.NumDocumento %></dd>
@@ -28,21 +30,24 @@
           
           <dt>Email</dt>
           <dd>
-              <%= @paciente.email %> 
+            <%= @paciente.email %> 
           </dd>
         </dl>
         <dl class="dl-horizontal span6" style="margin-bottom:0px">
           <dt>Edo. Civil</dt>
-          <dd><%= @paciente.nombre_estado_civil %></dd>
+          <dd>&nbsp;<%= @paciente.nombre_estado_civil %></dd>
           
           <dt>Sexo</dt>
-          <dd><%= @paciente.sexo %></dd>
+          <dd>&nbsp;<%= @paciente.sexo %></dd>
 
           <dt>Tel. Residencia</dt>
-          <dd><%= @paciente.TelResidencia %></dd>
+          <dd>&nbsp;<%= @paciente.TelResidencia %></dd>
 
-          <dt>Fecha Creaci&oacute;n</dt>
-          <dd><%= @historia_clinica.fecha_creacion %></dd>
+          <dt>Fecha Creación</dt>
+          <dd>&nbsp;<%= @historia_clinica.fecha_creacion %></dd>
+           
+          <dt>&nbsp;</dt>
+          <dd><%= link_to "Generar (PDF)", historias_clinica_path(@historia_clinica, :format => "pdf") %></dd>
         </dl>
       </li>
     </ul>
@@ -60,7 +65,7 @@
         </dd>
         <dt>Persona responsable</dt>
         <dd>
-          <%= @historia_clinica.nombre_responsable %>
+          ll<%= @historia_clinica.nombre_responsable %>
         </dd>
         <dt>Aseguradora (E.P.S.)</dt>
         <dd>
@@ -74,15 +79,15 @@
     </div>
     <div class="span4">
       <dl class="dl-horizontal" style="margin-bottom:0px">
-        <dt >Tel&eacute;fono</dt>
+        <dt >Teléfono</dt>
         <dd>
           <%= @historia_clinica.telefono_acompanante %>
         </dd>
-        <dt>Tel&eacute;fono</dt>
+        <dt>Teléfono</dt>
         <dd>
           <%= @historia_clinica.telefono_responsable %>
         </dd>
-        <dt>Tipo vinculaci&oacute;n</dt>
+        <dt>Tipo vinculación</dt>
         <dd>
           <%= @historia_clinica.tipo_aseguradora %>
         </dd>
@@ -93,28 +98,22 @@
         </dt>  
       </dl>
     </div>
-  </div>
-</div>  
-
-<div class="span11 historia_clinica_detalle">
-  <legend style="font-size:14px">Motivo de Consulta</legend>
+  </div>    
+  <legend style="font-size:16px">Motivo de Consulta</legend>
   <pre><%= @historia_clinica.motivo_consulta %></pre>
-  <legend style="font-size:14px">Enfermedad Actual</legend>
+  <legend style="font-size:16px">Enfermedad Actual</legend>
   <pre><%= @historia_clinica.enfermedad_actual %></pre>
-  <legend style="font-size:14px">Antecedentes personales patol&oacute;gicos</legend>
+  <legend style="font-size:16px">Antecedentes personales patológicos</legend>
   <pre><%= @historia_clinica.ante_personales_patologicos %></pre>
-  <legend style="font-size:14px">Antecedentes Gino-obst&eacute;tricos</legend>
+  <legend style="font-size:16px">Antecedentes Gino-obstétricos</legend>
   <pre><%= @historia_clinica.ante_gino_obstetricos %></pre>
-  <legend style="font-size:14px">Antecedentes Quir&uacute;rgicos</legend>
+  <legend style="font-size:16px">Antecedentes Quirúrgicos</legend>
   <pre><%= @historia_clinica.ante_quirurgicos %></pre>
-  <legend style="font-size:14px">Antecedentes Al&eacute;rgicos</legend>
+  <legend style="font-size:16px">Antecedentes Alérgicos</legend>
   <pre><%= @historia_clinica.ante_alergicos %></pre>
-  <legend style="font-size:14px">Antecedentes Familiares</legend>
+  <legend style="font-size:16px">Antecedentes Familiares</legend>
   <pre><%= @historia_clinica.ante_familiares %></pre>
-  <legend style="font-size:14px">Examen F&iacute;sico.</legend>
-</div>
-
-<div class="span11 historia_clinica_detalle">
+  <legend style="font-size:16px">Examen Físico.</legend>
   <div class='span11'>
     <div class="span5">
       <dl class="dl-horizontal" style="margin-bottom:0px">
@@ -157,17 +156,14 @@
       </dl>
     </div>
   </div>
-</div>
-
-<div class="span11 historia_clinica_detalle">
-  <legend style="font-size:14px">Aparatos Y Sistemas</legend>
+  <legend style="font-size:16px">Aparatos Y Sistemas</legend>
   <pre><label>CCC:</label>fdf<%= @historia_clinica.ccc %></pre>
   <pre><label>Cardio Pulmonar:</label>sdfd<%= @historia_clinica.cardiopulmonar %></pre>
   <pre><label>Abdomen:</label><%= @historia_clinica.abdomen %></pre>
   <pre><label>Extremidades:</label><%= @historia_clinica.extremidades %></pre>
   <pre><label>SNC:</label><%= @historia_clinica.snc %></pre>
-  <legend style="font-size:14px">Diagn&oacute;stico</legend>
+  <legend style="font-size:16px">Diagnóstico</legend>
   <pre><%= @historia_clinica.diagnostico %></pre>
-  <legend style="font-size:14px">Recomendaciones</legend>
+  <legend style="font-size:16px">Recomendaciones</legend>
   <pre><%= @historia_clinica.recomendaciones %></pre>
 </div>

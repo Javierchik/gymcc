@@ -26,7 +26,7 @@
 
 <% detalle = [
   {"controller_path" => "busquedas", "action_name"=>"detalle"},
-  {"controller_path" => "busquedas", "action_name"=>"historia_clinica"},
+  {"controller_path" => "historias_clinicas", "action_name"=>"show"},
   ] %>     
 
 <ul class="nav nav-tabs">
@@ -81,7 +81,7 @@
     </li>
   <% end %>
 
-  <% if controller.controller_name.eql?('busquedas') && (controller.action_name.eql?('detalle') || controller.action_name.eql?('historia_clinica'))%>
+  <% if (controller.controller_name.eql?('busquedas') && controller.action_name.eql?('detalle')) || (controller.controller_name.eql?('historias_clinicas') && controller.action_name.eql?('show'))%>
     <li title="" rel="" class="icon new_collection_link <%= set_as_current_tab(detalle, true, 'active') %>  %>">
       <a class="pjax" href="javascript:void(0)">
         <i class="icon-user"></i>

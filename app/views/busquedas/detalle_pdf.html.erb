@@ -5,6 +5,6 @@
 <div class="fieldset">
   <h3>Informaci&oacute;n B&aacute;sica</h3>  
   <%= render :partial => "paciente_informacion_basica.html.erb" %>
-  <%= render :partial => "paciente_historias_clinicas.html.erb" %>
-  <%= render :partial => "paciente_citas_medicas.html.erb" %>
+  <%= render :partial => "paciente_historias_clinicas.html.erb" if current_deporte_usuario.is?(:medico) %>
+  <%= render :partial => "paciente_citas_medicas.html.erb" if current_deporte_usuario.is?(:recepcion) %>
 </div>

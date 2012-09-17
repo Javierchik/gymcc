@@ -20,7 +20,7 @@
     <% @historias_clinicas.each do |historias_clinica| %>
       <tr>
         <td>
-          <%= link_to historias_clinica.socio.nombre_completo, paciente_historia_clinicas_path(historias_clinica.socio, historias_clinica) %>
+          <%= link_to historias_clinica.socio.nombre_completo, historias_clinica_path(historias_clinica) %>
         </td>  
         <td><%= historias_clinica.motivo_consulta %></td>
         <td><%= historias_clinica.enfermedad_actual %></td>

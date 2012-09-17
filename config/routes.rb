@@ -17,7 +17,7 @@
     end
   end
 
-  resources :historias_clinicas, :except => [:show]  do
+  resources :historias_clinicas  do
     member do
       get :listado_historias
       get :elaborar

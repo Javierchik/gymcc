@@ -7,6 +7,6 @@
 <div class="fieldset">
   <h3>Informaci&oacute;n B&aacute;sica</h3>  
   <%= render 'paciente_informacion_basica' %>
-  <%= render 'paciente_historias_clinicas' %>
-  <%= render 'paciente_citas_medicas' %>
+  <%= render 'paciente_historias_clinicas' if current_deporte_usuario.is?(:medico) %>
+  <%= render 'paciente_citas_medicas' if current_deporte_usuario.is?(:recepcion) %>
 </div>

@@ -1,6 +1,7 @@
 class BusquedasController < ApplicationController
   before_filter :authenticate_deporte_usuario!
-  
+  filter_access_to :all, :context => :busquedas
+
   def index
     if params[:query_string].present?
       socios = Socio.arel_table
@@ -17,20 +18,6 @@ class BusquedasController < ApplicationController
       format.pdf do
         render :pdf  => "Historial_#{@paciente.nombre_completo}_#{Time.now.to_i}",
                :template => "busquedas/detalle_pdf.html.erb",
-               :layout   => "pdf.html.erb"
-      end
-  
-    end
-  end
-
-  def historia_clinica
-    @paciente = Socio.find(params[:paciente_id])
-    @historia_clinica = @paciente.deporte_historias_clinicas.find(params[:id])
-    respond_to do |format| 
-      format.html
-      format.pdf do
-        render :pdf  => "Historia_clinica_#{@paciente.nombre_completo}_#{Time.now.to_i}",
-               :template => "busquedas/pdf.html.erb",
                :layout   => "pdf.html.erb"
       end
   

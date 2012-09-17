@@ -6,6 +6,20 @@ class HistoriasClinicasController < ApplicationController
     @historias_clinicas = DeporteHistoriasClinica.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
 
+  def show
+    @historia_clinica = DeporteHistoriasClinica.find(params[:id])
+    @paciente = @historia_clinica.socio
+    respond_to do |format| 
+      format.html
+      format.pdf do
+        render :pdf  => "Historia_clinica_#{@paciente.nombre_completo}_#{Time.now.to_i}",
+               :template => "historias_clinicas/show_pdf.html.erb",
+               :layout   => "pdf.html.erb"
+      end
+  
+    end
+  end
+
   def elaborar
     @paciente = Socio.find(params[:id])
     @historia_clinica = @paciente.deporte_historias_clinicas.build
