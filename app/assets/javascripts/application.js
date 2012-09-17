@@ -30,4 +30,14 @@ $(document).ready(function(){
     });
   }, 3500);
 
+  $("#deporte_historias_clinica_grupo_paciente_id").change(function(e){
+    var val = $(this).val();
+    if(val == 3){
+      $("#deporte_historias_clinica_otras_patologias").show();
+    }else{
+      $("#deporte_historias_clinica_otras_patologias").val("");
+      $("#deporte_historias_clinica_otras_patologias").hide();
+    }
+  });
+
 });

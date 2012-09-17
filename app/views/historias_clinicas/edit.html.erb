@@ -89,7 +89,8 @@
           </dd>
           <dt>Grupo de Paciente</dt>
           <dd>
-            <%= f.input :grupo_paciente_id, :collection => DeporteHistoriasClinica::GRUPO_PACIENTE, :label => false, :input_html => {:class => "span12"} %>          
+            <%= f.input :grupo_paciente_id, :collection => DeporteHistoriasClinica::GRUPO_PACIENTE, :label => false, :input_html => {:class => "span12"} %> 
+            <%= f.input :otras_patologias, :label => false, :input_html => {:class => "input-medium", :style => "display:none"}%>        
           </dd>
         </dl>
       </div>

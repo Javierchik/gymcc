@@ -23,6 +23,10 @@
   {"controller_path" => "deporte_usuarios", "action_name"=>"edit"},
   ] %>  
 
+<% ayuda = [
+  {"controller_path" => "ayuda", "action_name"=>"index"},
+  ] %>
+
 <ul class="nav nav-list">
   <li class="nav-header">Menú Principal</li>
 
@@ -57,11 +61,17 @@
     <li <%= set_as_current_tab(usuario, false, 'active') %> >
       <a href = <%= deporte_usuarios_path %> >
         <i class= "icon-user <%= set_as_current_tab(usuario, true, 'icon-white') %>"></i> 
-        Usuários</a>
+        Usuários
+      </a>
     </li>
   <% end %>
 
   <li class="divider"></li>
 
-  <li><a href="#"><i class="icon-flag"></i> Ayuda</a></li>
+  <li <%= set_as_current_tab(ayuda, false, 'active') %> >
+    <a href="<%= ayuda_index_path %>">
+      <i class="icon-flag <%= set_as_current_tab(ayuda, true, 'icon-white') %>"></i> 
+      Ayuda
+    </a>
+  </li>
 </ul>

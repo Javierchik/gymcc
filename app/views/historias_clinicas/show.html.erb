@@ -94,6 +94,9 @@
         <dt>Grupo de Paciente</dt>
         <dd>
           <%= @historia_clinica.grupo_paciente %>
+          <% if @historia_clinica.grupo_paciente_id == 3 %>
+            <%= @historia_clinica.otras_patologias %>
+          <% end %>  
         </dd>
         </dt>  
       </dl>

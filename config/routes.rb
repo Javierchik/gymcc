@@ -35,5 +35,7 @@
   match "/busquedas/:paciente_id/historia_clinica/:id" => "busquedas#historia_clinica", :as => :paciente_historia_clinicas
 
   resources :agenda, :only => [:index]
+
+  resources :ayuda, :only => [:index]
   
 end

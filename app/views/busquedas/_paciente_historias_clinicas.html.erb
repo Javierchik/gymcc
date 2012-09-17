@@ -8,14 +8,19 @@
       <th>Diagn&oacute;stico</th>
       <th>Recomendaciones</th>
       <th>Creaci&oacute;n</th>
+      <th></th>
     </tr>
     <% @historias_clinicas.each do |historia_clinica| %>
       <tr>
-        <td><%= link_to historia_clinica.motivo_consulta, paciente_historia_clinicas_path(historia_clinica.socio, historia_clinica) %></td>
+        <td><%= link_to historia_clinica.motivo_consulta, historias_clinica_path(historia_clinica) %></td>
         <td><%= historia_clinica.enfermedad_actual %></td>
         <td><%= historia_clinica.diagnostico %></td>
         <td><%= historia_clinica.recomendaciones %></td>
         <td><%= historia_clinica.fecha_creacion %></td>
+        <td>
+          <%= link_to 'Editar', edit_historias_clinica_path(historia_clinica), :class => 'btn btn-mini'  if current_deporte_usuario.is?(:medico) %>
+          <%= link_to 'Eliminar', historias_clinica_path(historia_clinica), :method => :delete, :class => 'btn btn-mini btn-danger', :data => { :confirm => 'Está seguro?' }  if current_deporte_usuario.is?(:medico) %>
+        </td>
       </tr>
     <% end %>
   </table>

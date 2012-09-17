@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h1>Ayuda</h1>
+</div>
+
+<div class="span11 historia_clinica_detalle">
+
+  <% if current_deporte_usuario.is?(:recepcion) %>
+  <legend style="font-size:16px"><b>Recepción</b></legend>
+<pre>
+Su perfíl de usuário cuenta con las opciones "Agenda" y "Citas Médicas" en el Menú Principal ubicado a mano izquierda de la ventana y en la barra de navegación superior. Adicionalmente, en éste ultimo lugar cuenta con la opción "Búsquedas".
+
+A continuación se explican cada una de ella.
+
+<b>* Agenda.</b>
+En este lugar podrá ver las Citas médicas agendadas para el día actual y el siguiente. La información disponible en cada una de las tablas es "Hora Cita", "Cédula",  "No Accion", "Nombre Completo", "Tel. Res." y Celular.
+
+<b>* Citas Médicas.</b>
+En esta ventana encontrará la lista de citas médicas agendadas en orden cronológico descendente y paginadas de 10 en 10. Usted pordrá "Editar" y "Eliminar" cada una de ella si lo desea. La informacion disponible en la tabla es: "Fecha Cita", "Cédula", "No Accion", "Nombre Completo", "Tel. Res.", "Celular".
+
+<b>* Para agendar una cita médica.</b>
+En todas las páginas usted encontrará un campo para introducir el No. de acción o la Cédula de un Socio, digítelo y haga clic en "Buscar". Aparecerá una página especificando el total de resultados y una tabla con los datos de los Socios que igualaron el critério de búsqueda. En esa tabla usted encontrará un botón llamado "Agendar Cita" que lo llevará a la siguiente página para que escoja el día y la hora en que se establecerá la cita médica. 
+
+Usted no podrá agendar una cita médica el mismo día y a la misma hora dos veces, el sistema le avisará que ya existe una cita. Así mismo, de modo informativo, en la parte de abajo encontrará las "Últimas citas médicas" agendadas para ese usuário.
+
+Si desea modificar la fecha y hora de una cita médica, diríjase al enlace "Citas Médicas", ubique la cita y haga clic en la opción "Editar". O si lo prefiere, digite el No. de acción o Cédula en el campo de Búsquedas con el fin de encontrar el Socio, haga clic en el número de cédula y encontrará una página con los detalles del socio junto a una tabla con todas las citas médica en orden descendente cronológico. 
+</pre>
+<% end %>
+
+<% if current_deporte_usuario.is?(:medico) %>
+<legend style="font-size:16px"><b>Médico</b></legend>
+<pre>
+Su perfíl de usuário cuenta con las opciones "Agenda" e "Historia Clínica" en el Menú Principal ubicado a mano izquierda de la ventana y en la barra de navegación superior. Adicionalmente, en éste ultimo lugar cuenta con la opción "Búsquedas".
+
+A continuación se explican cada una de ella.
+
+<b>* Agenda.</b>
+En este lugar podrá ver las Citas médicas agendadas para el día actual y el siguiente. La información disponible en cada una de las tablas es "Hora Cita", "Cédula",  "No Accion", "Nombre Completo", "Tel. Res." y Celular. Adicionalmente, en la misma página, usted pordrá elaborar la historia clínica para el socio que tiene cita para el día actual haciendo clic en "Elaborar Historia".
+
+<b>* Historias Clínicas.</b>
+En esta ventana encontrará la lista de historias clínicas elaboradas en orden cronológico descendente y paginadas de 10 en 10. Usted pordrá "Editar" y "Eliminar" cada una de ella si lo desea. La informacion disponible en la tabla es: "Nombre Socio", "Motivo Consulta", "Enfermedad Actual", "Diagnóstico" y "Recomendaciones". Usted puede ver los detalles de una historia clínica en particular haciendo clic en el nombre del socio.
+
+<b>* Para elaborar una historia clinica.</b>
+En todas las páginas usted encontrará un campo para introducir el No. de acción o la Cédula de un Socio, digítelo y haga clic en "Buscar". Aparecerá una página especificando el total de resultados y una tabla con los datos de los Socios que igualaron el critério de búsqueda. En esa tabla usted encontrará un botón llamado "Elaborar Historia" que lo llevará a la siguiente página para llenar todos los campos de la historia médica. 
+
+Usted podrá elaborar todas las historias clínicas que desee para un socio. No existe ningun tipo de restricción.
+
+Si desea modificar una historia clínica, diríjase al enlace "Historias Clínicas", ubiquela y haga clic en la opción "Editar". O si lo prefiere, digite el No. de acción o Cédula en el campo de Búsquedas con el fin de encontrar el Socio, haga clic en el número de cédula y encontrará una página con los detalles del socio junto a una tabla con todas las historias clínicas en orden descendente cronológico. 
+</pre>
+<% end %>
+
+<% if current_deporte_usuario.is?(:administrador) %>
+<legend style="font-size:16px"><b>Administrador</b></legend>
+<pre>
+Su perfil de usuário cuenta con todas la características de los usuarios tipo "Recepcion" y "Médico". Adicionalmente usted es el único con los permisos para añadir, editar y eliminar usuários. Usted puede crear usuários tipo "Recepción", "Médico" y "Administrador".
+</pre>
+<% end %>
+</div>

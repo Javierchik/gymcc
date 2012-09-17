@@ -5,6 +5,7 @@ class DeporteHistoriasClinica < ActiveRecord::Base
 
   attr_accessible :nombre_acompanante, :telefono_acompanante, :nombre_responsable, :socio_id, :grupo_paciente_id
   attr_accessible :telefono_responsable, :parentesco_responsable, :nombre_aseguradora, :tipo_aseguradora, :tipo_sangre
+  attr_accessible :otras_patologias
 
   validates_presence_of :motivo_consulta, :enfermedad_actual, :diagnostico, :recomendaciones
 
@@ -14,6 +15,10 @@ class DeporteHistoriasClinica < ActiveRecord::Base
 
   def grupo_paciente
   	DeporteHistoriasClinica::GRUPO_PACIENTE[self.grupo_paciente_id][0] if self.grupo_paciente_id.present?
+  end
+
+  def otras_patologias
+    self.read_attribute(:otras_patologias).to_s.force_encoding("UTF-8")
   end
 
   def nombre_acompanante
