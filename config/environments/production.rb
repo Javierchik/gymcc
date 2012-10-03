@@ -66,14 +66,22 @@ Gymcc::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.action_mailer.default_url_options = { :host => 'country.com.co' }
-
+  
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :user_name            => "gymcclub@gmail.com",
-    :password             => "Javierchik.",
-    :authentication       => "plain",
-    :enable_starttls_auto => true
+    :address              => "smtp.country.com.co",
+    :port                 => 25,
+    :user_name            => 'gymcc@country.com.co',
+    :password             => 'qazwsx123',
+    :authentication       => 'plain'
   }
+
+  # ActionMailer::Base.smtp_settings = {
+  #   :enable_starttls_auto => true,
+  #   :address              => "smtp.gmail.com",
+  #   :port                 => 587,
+  #   :user_name            => "gymcclub@gmail.com",
+  #   :password             => "Javierchik.",
+  #   :authentication       => "plain"
+  # }
 end

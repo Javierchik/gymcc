@@ -8,4 +8,10 @@ class SocioMailer < ActionMailer::Base
     	format.html
     end
   end
+
+  def test_mail
+    mail(:to => "javiersiado@gmail.com", :subject => "Testing email from CoountryGym", :content_type => "text/html") do |format|
+    	format.html
+    end
+  end
 end
