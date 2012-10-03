@@ -72,8 +72,7 @@ Gymcc::Application.configure do
     :address              => "smtp.country.com.co",
     :port                 => 25,
     :user_name            => 'gymcc@country.com.co',
-    :password             => 'qazwsx123',
-    :authentication       => 'plain'
+    :password             => 'qazwsx123'
   }
 
   # ActionMailer::Base.smtp_settings = {
