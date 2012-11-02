@@ -70,9 +70,7 @@ Gymcc::Application.configure do
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
     :address              => "smtp.country.com.co",
-    :port                 => 25,
-    :user_name            => 'gymcc@country.com.co',
-    :password             => 'qazwsx123'
+    :port                 => 25
   }
 
   # ActionMailer::Base.smtp_settings = {

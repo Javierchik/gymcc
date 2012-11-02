@@ -1,5 +1,5 @@
 class SocioMailer < ActionMailer::Base
-  default from: "gymcc@country.com.co"
+  default from: "no-reply@country.com.co"
   layout 'mailer'
 
   def cita_email(cita)

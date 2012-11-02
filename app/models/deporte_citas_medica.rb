@@ -47,6 +47,11 @@ class DeporteCitasMedica < ActiveRecord::Base
   end
 
   def dia_cita
-    self.read_attribute(:dia_cita).strftime("%Y-%m-%d").to_s.force_encoding("UTF-8")
-  end 
+    if self.read_attribute(:dia_cita).present? 
+      self.read_attribute(:dia_cita).strftime("%Y-%m-%d").to_s.force_encoding("UTF-8")
+    else
+      ""
+    end
+  end
+
 end
