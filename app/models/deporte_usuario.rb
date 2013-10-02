@@ -11,7 +11,7 @@ class DeporteUsuario < ActiveRecord::Base
   validates_presence_of :nombre, :apellido, :rol
 
   def nombre_completo
-    nombre.to_s + ' ' + apellido.to_s
+    nombre.to_s.force_encoding("UTF-8") + ' ' + apellido.to_s.force_encoding("UTF-8")
   end
 
   def role_name

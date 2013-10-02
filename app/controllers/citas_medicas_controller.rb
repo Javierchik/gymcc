@@ -16,7 +16,8 @@ class CitasMedicasController < ApplicationController
 
   def create
     @paciente = Socio.find(params[:id_unico_socio])
-    @cita_medica = @paciente.deporte_citas_medicas.build params[:deporte_citas_medica]
+    dia = params[:deporte_citas_medica][:dia_cita].to_datetime
+    @cita_medica = @paciente.deporte_citas_medicas.build(:dia_cita => dia, :hora_cita => params[:deporte_citas_medica][:hora_cita], :socio_id => params[:deporte_citas_medica][:socio_id])
 
     if @cita_medica.save
       flash[:notice] = "Se ha agendado la cita con exito."
